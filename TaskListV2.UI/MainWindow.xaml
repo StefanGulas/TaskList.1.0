@@ -83,7 +83,7 @@
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
 
-                                            <CheckBox VerticalAlignment="Top" Margin="15 0 10 0" Background="#FF0f4c75" Foreground="White" Height="30" Width="30" IsChecked="{Binding TaskComplete, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Checked="CheckBox_Checked" Style="{StaticResource MaterialDesignActionAccentToggleButton}" />
+                                            <CheckBox VerticalAlignment="Top" Margin="15 0 10 0" Background="#FF0f4c75" Foreground="White" Height="30" Width="30" IsChecked="{Binding TaskComplete, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Checked="CheckBox_Checked" Style="{StaticResource MaterialDesignAccentCheckBox}" />
 
                                             <!--<CheckBox VerticalAlignment="Top" Margin="15 0 10 0" Background="#FF0f4c75" Foreground="White" Height="30" Width="30" Command="{Binding TaskCompleteCommand, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
           CommandParameter="{Binding IsChecked, RelativeSource={RelativeSource Self}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Style="{StaticResource MaterialDesignActionAccentToggleButton}" 
