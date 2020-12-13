@@ -15,19 +15,16 @@
          FontFamily="./#Resources/Roboto"
          Background="{DynamicResource MaterialDesignPaper MaterialDesignDarkBackground}">
     <!-- Start -->
-    <Grid>
-
-
-        <Grid Background="#FF5893d4">
+    <Grid Background="#FF5893d4">
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="60"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
             <!-- Custom Frame -->
 
-            <DockPanel Grid.Row="0" Background="#FF070d59">
+            <DockPanel Grid.Row="0" Grid.Column="0" Background="#FF070d59">
                 <StackPanel VerticalAlignment="Top" Margin="10,0" MouseLeftButtonDown="StackPanel_MouseDown">
                     <Grid>
                         <materialDesign:MaterialDateDisplay Foreground="White" Background="{x:Null}" HorizontalAlignment="Left"/>
@@ -59,14 +56,14 @@
 
 
                 <!--MenuColumn-->
-                <ListView Grid.Column="0" Foreground="White" Margin="10 38"  FontSize="16" ItemsSource="{Binding MenuItems}"
+                <ListView Grid.Column="0" Grid.Row="1" Foreground="White" Margin="10 38"  FontSize="16" ItemsSource="{Binding MenuItems}"
                   SelectedItem="{Binding SelectedItem, UpdateSourceTrigger=PropertyChanged}" />
 
 
 
 
                 <!--TaskColumn-->
-                <Grid  Grid.Column="1" Grid.Row="1" >
+                <Grid  Grid.Column="2" Grid.Row="1" >
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition Height="Auto"/>
@@ -85,12 +82,8 @@
 
                                             <CheckBox VerticalAlignment="Top" Margin="15 0 10 0" Background="#FF0f4c75" Foreground="White" Height="30" Width="30" IsChecked="{Binding TaskComplete, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Checked="CheckBox_Checked" Style="{StaticResource MaterialDesignAccentCheckBox}" />
 
-                                            <!--<CheckBox VerticalAlignment="Top" Margin="15 0 10 0" Background="#FF0f4c75" Foreground="White" Height="30" Width="30" Command="{Binding TaskCompleteCommand, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-          CommandParameter="{Binding IsChecked, RelativeSource={RelativeSource Self}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Style="{StaticResource MaterialDesignActionAccentToggleButton}" 
-                                                                                 />-->      
-                                                <!--<CheckBox VerticalAlignment="Top" Margin="15 0 10 0" Background="#FF0f4c75" Foreground="White" Height="30" Width="30" IsChecked="{Binding RefreshTasksAfterComplete, RelativeSource={RelativeSource AncestorType=UserControl}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource MaterialDesignActionAccentToggleButton}" 
-                                                                                 />-->
-                                            <!--<CheckBox VerticalAlignment="Top" Margin="15 0 10 0" Background="#FF0f4c75" Foreground="White" Height="30" Width="30" IsChecked="{Binding TaskComplete, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Checked="CheckBox_Checked" Style="{StaticResource MaterialDesignAccentCheckBox}" />-->
+
+
 
 
                                         </DataTemplate>
@@ -135,7 +128,6 @@
 
                 </Grid>
             </Grid>
-        </Grid>
         <!-- ToDo: Refactoring DRY Principle: make one sliding window out of the two! -->
         <Grid x:Name="SlideGridAddTask" HorizontalAlignment="Right">
             <Grid.ColumnDefinitions>
@@ -225,7 +217,7 @@
             </StackPanel>
 
         </Grid>
-        </Grid>
+    </Grid>
         <Grid x:Name="SlideGridEditTask" HorizontalAlignment="Right">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="700"/>
@@ -246,10 +238,7 @@
                                 Kind="ArrowRight"/>
                 </Button>
 
-                    <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 10">
-                        <CheckBox Margin="15 5 10 0" Background="AliceBlue" Height="25" Width="25" Style="{StaticResource MaterialDesignActionAccentToggleButton}" IsChecked="{Binding Complete}" Cursor="Hand"/>
-                        <Label HorizontalAlignment="Right" Content="Fertig"  Foreground="AntiqueWhite"/>
-                    </StackPanel>-->
+
                     <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Margin="15 0" VerticalAlignment="Center" Kind="ToDo" Foreground="{DynamicResource MaterialDesignPaper}"/>
                     <Label Content="ToDo" Margin="0 5 15 0" Foreground="AntiqueWhite"/>
@@ -318,7 +307,7 @@
             </StackPanel>
 
         </Grid>
-        </Grid>
 
+    </Grid>
     </Grid>
 </Window>
