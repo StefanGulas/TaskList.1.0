@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:system="clr-namespace:System;assembly=System.Runtime"
+        xmlns:viewmodel="clr-namespace:TaskListV2.UI.ViewModel"
+        xmlns:view="clr-namespace:TaskListV2.UI.View"
         mc:Ignorable="d"
         Title="ToDoList" ResizeMode="NoResize"  Height="600" Width="970" MinHeight="600" MinWidth="900" FontSize="20"         WindowStyle="None" WindowStartupLocation="CenterScreen"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -14,11 +16,19 @@
          TextOptions.TextRenderingMode="Auto"
          FontFamily="./#Resources/Roboto"
          Background="{DynamicResource MaterialDesignPaper MaterialDesignDarkBackground}">
+    <!--<Window.Resources>
+        <DataTemplate x:Name="MenuColumnTemplate" DataType="{x:Type viewmodel:MenuColumnViewModel}">
+            <view:NewTaskView DataContext="{Binding}"/>
+        </DataTemplate>
+        
+    </Window.Resources>-->
+    
+    
     <!-- Start -->
-    <Grid Background="#FF5893d4">
+    <Grid Background="#FF5893d4" >
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="60"/>
+                <RowDefinition Height="65"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
@@ -56,13 +66,13 @@
 
 
                 <!--MenuColumn-->
-                <ListView Grid.Column="0" Grid.Row="1" Foreground="White" Margin="10 38"  FontSize="16" ItemsSource="{Binding MenuItems}"
-                  SelectedItem="{Binding SelectedItem, UpdateSourceTrigger=PropertyChanged}" />
+                <!--<ListView Grid.Column="0" Grid.Row="1" Foreground="White" Margin="10 38"  FontSize="16" ItemsSource="{Binding MenuItems}"
+                  SelectedItem="{Binding SelectedItem, UpdateSourceTrigger=PropertyChanged}" />-->
 
+            <!--<ContentControl Grid.Row="1" Grid.Column="0" Content="{Binding}"/>-->
+            <!--<view:MenuColumnView DataContext-->
 
-
-
-                <!--TaskColumn-->
+            <!--TaskColumn-->
                 <Grid  Grid.Column="2" Grid.Row="1" >
                     <Grid.RowDefinitions>
                         <RowDefinition/>
