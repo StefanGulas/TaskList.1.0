@@ -4,8 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:system="clr-namespace:System;assembly=System.Runtime"
-        xmlns:viewmodel="clr-namespace:TaskListV2.UI.ViewModel"
-        xmlns:view="clr-namespace:TaskListV2.UI.View"
+        xmlns:local="clr-namespace:TaskListV2.UI"
+        xmlns:viewmodels="clr-namespace:TaskListV2.UI.ViewModel"
+        xmlns:views="clr-namespace:TaskListV2.UI.View"
         mc:Ignorable="d"
         Title="ToDoList" ResizeMode="NoResize"  Height="600" Width="970" MinHeight="600" MinWidth="900" FontSize="20"         WindowStyle="None" WindowStartupLocation="CenterScreen"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -16,12 +17,18 @@
          TextOptions.TextRenderingMode="Auto"
          FontFamily="./#Resources/Roboto"
          Background="{DynamicResource MaterialDesignPaper MaterialDesignDarkBackground}">
-    <!--<Window.Resources>
-        <DataTemplate x:Name="MenuColumnTemplate" DataType="{x:Type viewmodel:MenuColumnViewModel}">
-            <view:NewTaskView DataContext="{Binding}"/>
+    <Window.Resources>
+        <DataTemplate x:Name="Test" DataType="{x:Type local:App}">
+            <views:MenuColumnView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="menuColumnTemplate" DataType="{x:Type viewmodels:MainViewModel}">
+            <views:MenuColumn DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="taskColumnTemplate" DataType="{x:Type viewmodels:TaskColumnViewModel}">
+            <views:TaskColumnView DataContext="{Binding}"/>
         </DataTemplate>
         
-    </Window.Resources>-->
+    </Window.Resources>
     
     
     <!-- Start -->
@@ -34,7 +41,10 @@
 
             <!-- Custom Frame -->
 
-            <DockPanel Grid.Row="0" Grid.Column="0" Background="#FF070d59">
+        <ContentControl Grid.Row="0" Grid.Column="0" Content="{Binding}"/>
+
+
+        <!--<DockPanel Grid.Row="0" Grid.Column="0" Background="#FF070d59">
                 <StackPanel VerticalAlignment="Top" Margin="10,0" MouseLeftButtonDown="StackPanel_MouseDown">
                     <Grid>
                         <materialDesign:MaterialDateDisplay Foreground="White" Background="{x:Null}" HorizontalAlignment="Left"/>
@@ -55,7 +65,7 @@
                         </StackPanel>
                     </Grid>
                 </StackPanel>
-            </DockPanel>
+            </DockPanel>-->
 
             <!--Body-->
             <Grid Grid.Column="0" Grid.Row="1" >
@@ -70,7 +80,7 @@
                   SelectedItem="{Binding SelectedItem, UpdateSourceTrigger=PropertyChanged}" />-->
 
             <!--<ContentControl Grid.Row="1" Grid.Column="0" Content="{Binding}"/>-->
-            <!--<view:MenuColumnView DataContext-->
+       
 
             <!--TaskColumn-->
                 <Grid  Grid.Column="2" Grid.Row="1" >
