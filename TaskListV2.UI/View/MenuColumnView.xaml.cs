@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TaskListV2.UI.ViewModel;
 
 namespace TaskListV2.UI.View
 {
@@ -18,9 +19,22 @@ namespace TaskListV2.UI.View
   /// </summary>
   public partial class MenuColumn : UserControl
   {
+    //public MenuColumn(MenuColumnViewModel menuColumnViewModel)
+    //{
+    //  InitializeComponent();
+    //  DataContext = menuColumnViewModel;
+    //}
+    private MainViewModel _mainViewModel;
     public MenuColumn()
     {
+        
       InitializeComponent();
+    }
+    public MenuColumn(MainViewModel mainViewModel)
+    {
+      InitializeComponent();
+      _mainViewModel = mainViewModel;
+      DataContext = _mainViewModel;
     }
   }
 }

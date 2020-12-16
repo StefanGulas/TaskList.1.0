@@ -10,18 +10,28 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TaskListV2.UI.ViewModel;
 
 namespace TaskListV2.UI.View
 {
   /// <summary>
-  /// Interaktionslogik für TaskColumn.xaml
+  /// Interaktionslogik für CustomFrame.xaml
   /// </summary>
-  public partial class TaskColumn : UserControl
+  public partial class CustomFrame : UserControl
   {
-    public TaskColumn()
+    public CustomFrame()
     {
       InitializeComponent();
+    }
+
+    private void StackPanel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+    {
+      base.OnMouseLeftButtonDown(e);
+      
+    }
+
+    private void ButtonFechar_Click(object sender, RoutedEventArgs e)
+    {
+      Application.Current.Shutdown();
     }
   }
 }

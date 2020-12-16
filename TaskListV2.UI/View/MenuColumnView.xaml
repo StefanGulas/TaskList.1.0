@@ -7,6 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="Blue">
-            
+        <ListView Background="AliceBlue" Foreground="White" Margin="10 38"  FontSize="16" ItemsSource="{Binding MenuItems}"
+                  SelectedItem="{Binding SelectedItem, UpdateSourceTrigger=PropertyChanged}" />
     </Grid>
 </UserControl>

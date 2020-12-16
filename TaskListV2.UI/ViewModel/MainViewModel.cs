@@ -247,7 +247,6 @@ namespace TaskListV2.UI.ViewModel
     }
 
     private string _isVisible;
-    private ObservableCollection<Task> newTasks;
 
     public string IsVisible
     {
