@@ -19,10 +19,10 @@
                         <Button Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray">
                             <materialDesign:PackIcon Kind="BellOutline" Foreground="{DynamicResource MaterialDesignPaper}"/>
                         </Button>
-                        <Button Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray" Margin="5 0 5 0">
+                        <Button Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray" Margin="5 0 5 0" Cursor="Hand">
                             <materialDesign:PackIcon Kind="Settings" Foreground="{DynamicResource MaterialDesignPaper}"/>
                         </Button>
-                        <Button x:Name="ButtonFechar" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray" Click="ButtonFechar_Click">
+                        <Button x:Name="ButtonFechar" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray" Command="{Binding CloseAppCommand, Mode=OneWay, NotifyOnSourceUpdated=True}" CommandParameter="{Binding}" Cursor="Hand">
                             <materialDesign:PackIcon Kind="Power" Foreground="{DynamicResource MaterialDesignPaper}"/>
                         </Button>
                     </StackPanel>

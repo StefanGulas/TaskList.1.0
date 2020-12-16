@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TaskListV2.UI.ViewModel;
 
 namespace TaskListV2.UI.View
 {
@@ -21,7 +22,11 @@ namespace TaskListV2.UI.View
     public CustomFrame()
     {
       InitializeComponent();
+      DataContext = new CustomFrameViewModel();
     }
+
+
+
 
     private void StackPanel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
     {
@@ -29,9 +34,5 @@ namespace TaskListV2.UI.View
       
     }
 
-    private void ButtonFechar_Click(object sender, RoutedEventArgs e)
-    {
-      Application.Current.Shutdown();
-    }
   }
 }
