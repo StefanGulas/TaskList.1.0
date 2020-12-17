@@ -16,7 +16,9 @@
          TextOptions.TextFormattingMode="Ideal"
          TextOptions.TextRenderingMode="Auto"
          FontFamily="./#Resources/Roboto"
-         Background="{DynamicResource MaterialDesignPaper MaterialDesignDarkBackground}">
+         Background="{DynamicResource MaterialDesignPaper MaterialDesignDarkBackground}"
+        MouseDown="Window_MouseDown"
+        >
     <!--<Window.Resources>
         <DataTemplate x:Key="Test" DataType="{x:Type local:App}">
             <views:ExampleWindow />

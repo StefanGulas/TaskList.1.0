@@ -6,9 +6,9 @@
              xmlns:local="clr-namespace:TaskListV2.UI.View" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid >
         <DockPanel Grid.Row="0" Grid.Column="0" Background="#FF070d59">
-            <StackPanel VerticalAlignment="Top" Margin="10,0" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown">
+            <StackPanel VerticalAlignment="Top" Margin="10,0" >
                 <Grid>
                     <materialDesign:MaterialDateDisplay Foreground="White" Background="{x:Null}" HorizontalAlignment="Left"/>
 
