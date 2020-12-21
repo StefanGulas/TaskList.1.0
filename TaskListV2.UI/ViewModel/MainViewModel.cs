@@ -6,8 +6,6 @@ using System.Windows.Input;
 using TaskListV2.Model;
 using TaskListV2.UI.Command;
 using TaskListV2.UI.Data;
-using System.Windows;
-using TaskListV2.UI.ViewModel;
 
 namespace TaskListV2.UI.ViewModel
 {
@@ -32,7 +30,7 @@ namespace TaskListV2.UI.ViewModel
 
     public MainViewModel(ITaskListV2DataService taskDataService)
     {
-      MenuItems = TaskListV2DataService.LeftMenuItems;
+      //MenuItems = TaskListV2DataService.LeftMenuItems;
       Tasks = new ObservableCollection<Task>();
       NewTasks = new ObservableCollection<Task>();
       _taskDataService = taskDataService;
@@ -53,7 +51,7 @@ namespace TaskListV2.UI.ViewModel
 
     }
 
-    public IEnumerable<string> MenuItems { get; set; }
+    //public IEnumerable<string> MenuItems { get; set; }
 
 
 

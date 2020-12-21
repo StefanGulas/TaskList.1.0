@@ -1,5 +1,4 @@
 ﻿using System.Windows.Controls;
-using System.Windows.Input;
 using TaskListV2.UI.ViewModel;
 
 namespace TaskListV2.UI.View

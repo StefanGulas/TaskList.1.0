@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows.Controls;
 using TaskListV2.UI.ViewModel;
+
 
 namespace TaskListV2.UI.View
 {
@@ -24,17 +14,30 @@ namespace TaskListV2.UI.View
     //  InitializeComponent();
     //  DataContext = menuColumnViewModel;
     //}
-    private MainViewModel _mainViewModel;
+    //private MenuColumnViewModel _menuColumnViewModel;
     public MenuColumn()
     {
-        
+
       InitializeComponent();
+      DataContext = new MenuColumnViewModel();
     }
-    public MenuColumn(MainViewModel mainViewModel)
-    {
-      InitializeComponent();
-      _mainViewModel = mainViewModel;
-      DataContext = _mainViewModel;
-    }
+    //public MenuColumn(MenuColumnViewModel viewModel)
+    //{
+    //  InitializeComponent();
+    //  _menuColumnViewModel = viewModel;
+    //  DataContext = _menuColumnViewModel;
+    //  //Loaded += MenuColumnWindow_Loaded;
+
+    //}
+
+    //private void MenuColumnWindow_Loaded(object sender, RoutedEventArgs e)
+    //{
+    //  _menuColumnViewModel.Load();
+    //}
+
+    //private void MenuColumnWindow_Loaded(object sender, RoutedEventArgs e)
+    //{
+    //  _menuColumnViewModel.Load();
+    //}
   }
 }
