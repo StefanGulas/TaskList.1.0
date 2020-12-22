@@ -11,7 +11,7 @@ namespace TaskListV2.UI.ViewModel
     public MenuColumnViewModel()
     {
       MenuItems = TaskListV2DataService.LeftMenuItems;
-      var mainViewModel = new MainViewModel();
+      //var mainViewModel = new MainViewModel(ITaskListV2DataService taskDataService);
     }
 
     public IEnumerable<string> MenuItems { get; set; }

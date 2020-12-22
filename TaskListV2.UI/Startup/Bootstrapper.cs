@@ -12,7 +12,6 @@ namespace TaskListV2.UI.Startup
         {
             var builder = new ContainerBuilder();
             builder.RegisterType<MainWindow>().AsSelf();
-            builder.RegisterType<MainWindow>().AsSelf();
             builder.RegisterType<CustomFrame>().AsSelf();
             builder.RegisterType<MenuColumn>().AsSelf();
             builder.RegisterType<TaskColumn>().AsSelf();
