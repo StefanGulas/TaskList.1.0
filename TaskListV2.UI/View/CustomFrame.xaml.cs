@@ -12,7 +12,7 @@ namespace TaskListV2.UI.View
     {
       InitializeComponent();
       // ToDo: Dependency Injection umsetzen
-      DataContext = new CustomFrameViewModel();
+      //DataContext = new CustomFrameViewModel();
     }
 
 

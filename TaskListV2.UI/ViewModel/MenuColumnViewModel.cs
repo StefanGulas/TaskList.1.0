@@ -1,20 +1,26 @@
 ﻿using System.Collections.Generic;
+using Prism.Events;
 using TaskListV2.UI.Data;
+using TaskListV2.UI.Event;
 
 namespace TaskListV2.UI.ViewModel
 {
-  public class MenuColumnViewModel : ViewModelBase
+  public class MenuColumnViewModel : ViewModelBase, IMenuColumnViewModel
   {
     private string _selectedItem;
 
 
-    public MenuColumnViewModel()
+    public MenuColumnViewModel(IEventAggregator eventAggregator)
     {
+
       MenuItems = TaskListV2DataService.LeftMenuItems;
+      _eventAggregator = eventAggregator;
       //var mainViewModel = new MainViewModel(ITaskListV2DataService taskDataService);
     }
 
     public IEnumerable<string> MenuItems { get; set; }
+
+    private IEventAggregator _eventAggregator;
 
     public string SelectedItem
     {
@@ -23,7 +29,10 @@ namespace TaskListV2.UI.ViewModel
       {
         _selectedItem = value;
         OnPropertyChanged();
-        //RefreshTasks();
+        if (_selectedItem != null)
+        {
+          _eventAggregator.GetEvent<SelectedMenuItemEvent>().Publish(_selectedItem);
+        }
       }
     }
   }

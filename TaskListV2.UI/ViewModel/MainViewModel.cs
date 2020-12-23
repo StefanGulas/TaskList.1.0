@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
+using Prism.Events;
 using TaskListV2.Model;
 using TaskListV2.UI.Command;
 using TaskListV2.UI.Data;
+using TaskListV2.UI.Event;
 
 namespace TaskListV2.UI.ViewModel
 {
   public class MainViewModel : ViewModelBase
   {
     private readonly ITaskListV2DataService _taskDataService;
+    private readonly IEventAggregator _eventAggregator;
     private Task _selectedTask;
     private string _selectedItem;
     private string _name;
@@ -28,13 +31,23 @@ namespace TaskListV2.UI.ViewModel
 
 
 
-    public MainViewModel(ITaskListV2DataService taskDataService)
+    public MainViewModel(ITaskListV2DataService taskDataService, IEventAggregator eventAggregator, IMenuColumnViewModel menuColumnViewModel, ICustomFrameViewModel customFrameViewModel)
     {
       //MenuItems = TaskListV2DataService.LeftMenuItems;
       Tasks = new ObservableCollection<Task>();
+      MenuColumnViewModel = menuColumnViewModel;
+      CustomFrameViewModel = customFrameViewModel;
       NewTasks = new ObservableCollection<Task>();
       _taskDataService = taskDataService;
+      _eventAggregator = eventAggregator;
+      _eventAggregator.GetEvent<SelectedMenuItemEvent>().Subscribe(OnSelectedMenuItemView);
       //createTaskCommand = new CreateTaskCommand();
+    }
+
+    private void OnSelectedMenuItemView(string selectedItem)
+    {
+      _selectedItem = selectedItem;
+      RefreshTasks();
     }
 
     public void Load()
@@ -109,6 +122,8 @@ namespace TaskListV2.UI.ViewModel
       }
     }
 
+    public IMenuColumnViewModel MenuColumnViewModel { get; }
+    public ICustomFrameViewModel CustomFrameViewModel { get; }
     public ObservableCollection<Task> NewTasks { get; private set; }
 
     public Task SelectedTask

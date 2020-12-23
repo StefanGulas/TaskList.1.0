@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:system="clr-namespace:System;assembly=System.Runtime"
         xmlns:local="clr-namespace:TaskListV2.UI"
-        xmlns:viewmodels="clr-namespace:TaskListV2.UI.ViewModel"
-        xmlns:views="clr-namespace:TaskListV2.UI.View"
+        xmlns:viewmodel="clr-namespace:TaskListV2.UI.ViewModel"
+        xmlns:view="clr-namespace:TaskListV2.UI.View"
         mc:Ignorable="d"
         Title="ToDoList" ResizeMode="NoResize"  Height="600" Width="970" MinHeight="600" MinWidth="900" FontSize="20"         WindowStyle="None" WindowStartupLocation="CenterScreen"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -48,8 +48,8 @@
 
 
 
-        <views:CustomFrame Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-        <views:MenuColumn Grid.Row="1" Grid.Column="0"/>
+        <view:CustomFrame DataContext="{Binding CustomFrameViewModel}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
+        <view:MenuColumn DataContext="{Binding MenuColumnViewModel}" Grid.Row="1" Grid.Column="0"/>
         <!--<views:TaskColumn Grid.Row="1" Grid.Column="1" />-->
         
 

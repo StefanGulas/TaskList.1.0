@@ -1,4 +1,5 @@
 ﻿using System.Windows.Controls;
+using Prism.Events;
 using TaskListV2.UI.ViewModel;
 
 
@@ -19,7 +20,7 @@ namespace TaskListV2.UI.View
     {
 
       InitializeComponent();
-      DataContext = new MenuColumnViewModel();
+      
     }
     //public MenuColumn(MenuColumnViewModel viewModel)
     //{
