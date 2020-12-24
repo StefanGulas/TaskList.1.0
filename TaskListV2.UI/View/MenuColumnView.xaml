@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:TaskListV2.UI.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="Blue">
+    <Grid Background="#FF5893d4">
         <ListView Background="AliceBlue" Foreground="White" Margin="10 38"  FontSize="16" ItemsSource="{Binding MenuItems}"
                   SelectedItem="{Binding SelectedItem, UpdateSourceTrigger=PropertyChanged}" />
     </Grid>

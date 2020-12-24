@@ -3,10 +3,72 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:TaskListV2.UI.View"
+             xmlns:local="clr-namespace:TaskListV2.UI.View" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="Green">
-            
-    </Grid>
+    <Grid Background="#FF5893d4">
+        <Grid  Grid.Column="1" Grid.Row="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <!--<ListView MouseDoubleClick="ListViewTaskList_MouseLeftButtonDown" x:Name="ListViewTaskList" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="White" Grid.Row="0"  Margin="10 0 0 0" FontSize="14" ItemsSource="{Binding Tasks, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding SelectedTask, UpdateSourceTrigger=PropertyChanged}"  >
+
+                <ListView.View>
+
+
+
+                    <GridView>
+                        <GridViewColumn >
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+
+                                    <CheckBox VerticalAlignment="Top" Margin="15 0 10 0" Background="#FF0f4c75" Foreground="White" Height="30" Width="30" IsChecked="{Binding TaskComplete, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Checked="CheckBox_Checked" Style="{StaticResource MaterialDesignAccentCheckBox}" />
+
+
+
+
+
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Width="200" DisplayMemberBinding="{Binding TaskName}" />
+                        <GridViewColumn Width="100" DisplayMemberBinding="{Binding TaskCategory}"/>
+                        <GridViewColumn Width="120" DisplayMemberBinding="{Binding DueString}" />
+                        <GridViewColumn Width="120" DisplayMemberBinding="{Binding Reminder}" />
+                        <GridViewColumn Width="70" DisplayMemberBinding="{Binding TaskRepetition}" />
+
+                        <GridViewColumn>
+
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate >
+                                    <materialDesign:PackIcon Width="80" VerticalAlignment="Center" x:Name="IsImportantStar" Grid.Column="2" Kind="Star" Foreground="White" Visibility="{Binding ImportantStar}"/>
+                                    <Style="{StaticResource MaterialDesignLightCheckBox}"/>
+
+
+
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+
+                        </GridViewColumn>
+
+                    </GridView>
+                </ListView.View>
+            </ListView>-->
+
+
+
+
+            <!--<Button VerticalAlignment="Bottom" HorizontalAlignment="Right"      x:Name="PopUpOpenButton" Background="#FF363636"  Grid.Column="6" 
+                         Margin="0 0 30 15" Click="PopUpOpenButton_Click" 
+                                Style="{StaticResource MaterialDesignIconButton}"
+                        ToolTip="ToDo hinzufügen" Cursor="Hand" >
+                <materialDesign:PackIcon
+                            Kind="Plus"/>
+
+            </Button>-->
+        </Grid>
+        </Grid>
 </UserControl>
