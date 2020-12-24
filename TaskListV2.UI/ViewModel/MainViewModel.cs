@@ -20,20 +20,15 @@ namespace TaskListV2.UI.ViewModel
     private string _name;
     private ObservableCollection<Task> _tasks;
     private Reminder _reminder = 0;
-
     private Task _myTask;
-
-    public Task MyTask
-    {
-      get { return _myTask; }
-      set { _myTask = value; }
-    }
-
+    private Repetition _repetition = 0;
+    private Category _category = 0;
+    private bool _complete;
+    private bool _important;
 
 
     public MainViewModel(ITaskListV2DataService taskDataService, IEventAggregator eventAggregator, IMenuColumnViewModel menuColumnViewModel, ICustomFrameViewModel customFrameViewModel)
     {
-      //MenuItems = TaskListV2DataService.LeftMenuItems;
       Tasks = new ObservableCollection<Task>();
       MenuColumnViewModel = menuColumnViewModel;
       CustomFrameViewModel = customFrameViewModel;
@@ -41,7 +36,6 @@ namespace TaskListV2.UI.ViewModel
       _taskDataService = taskDataService;
       _eventAggregator = eventAggregator;
       _eventAggregator.GetEvent<SelectedMenuItemEvent>().Subscribe(OnSelectedMenuItemView);
-      //createTaskCommand = new CreateTaskCommand();
     }
 
     private void OnSelectedMenuItemView(string selectedItem)
@@ -64,10 +58,11 @@ namespace TaskListV2.UI.ViewModel
 
     }
 
-    //public IEnumerable<string> MenuItems { get; set; }
-
-
-
+    public Task MyTask
+    {
+      get { return _myTask; }
+      set { _myTask = value; }
+    }
 
     public string SelectedItem
     {
@@ -98,18 +93,15 @@ namespace TaskListV2.UI.ViewModel
       }
     }
 
-
     public void RefreshTasksAfterComplete()
     {
       foreach (var task in this.Tasks)
       {
-        
+
         if (task.TaskComplete) _taskDataService.TaskIsComplete(task.TaskComplete, task.TaskId);
       }
       RefreshTasks();
     }
-
-
 
     public ObservableCollection<Task> Tasks
     {
@@ -148,6 +140,7 @@ namespace TaskListV2.UI.ViewModel
       //SlideGridAddTask.Width = 400;
       TaskId = _selectedTask.TaskId;
     }
+
     public IList<Category> TaskCategories
     {
       get
@@ -157,7 +150,6 @@ namespace TaskListV2.UI.ViewModel
       set { }
     }
     public int TaskId { get; set; }
-    private Category _category = 0;
     public Category Category
     {
       get { return _category; }
@@ -198,7 +190,6 @@ namespace TaskListV2.UI.ViewModel
       set { }
     }
 
-    private Repetition _repetition = 0;
     public Repetition Repetition
     {
       get { return _repetition; }
@@ -221,7 +212,6 @@ namespace TaskListV2.UI.ViewModel
       }
     }
 
-    private bool _complete;
 
     public bool Complete
     {
@@ -234,7 +224,6 @@ namespace TaskListV2.UI.ViewModel
       }
     }
 
-    private bool _important;
 
     public bool Important
     {
@@ -267,15 +256,9 @@ namespace TaskListV2.UI.ViewModel
       set { _isVisible = "Hidden"; }
     }
 
-
     public ICommand CreateTaskCommand { get { return new CreateTaskCommand(_taskDataService); } }
     public ICommand EditTaskCommand { get { return new EditTaskCommand(_taskDataService); } }
     public ICommand TaskCompleteCommand { get { return new TaskCompleteCommand(_taskDataService); } }
-
-    //public DateTime DisplayTaskDateStart
-    //{
-    //  get { return DateTime.Today; }
-    //}
   }
 
 

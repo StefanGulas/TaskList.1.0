@@ -9,18 +9,16 @@ namespace TaskListV2.UI.ViewModel
   {
     private string _selectedItem;
 
+    public IEnumerable<string> MenuItems { get; set; }
+
+    private IEventAggregator _eventAggregator;
 
     public MenuColumnViewModel(IEventAggregator eventAggregator)
     {
 
       MenuItems = TaskListV2DataService.LeftMenuItems;
       _eventAggregator = eventAggregator;
-      //var mainViewModel = new MainViewModel(ITaskListV2DataService taskDataService);
     }
-
-    public IEnumerable<string> MenuItems { get; set; }
-
-    private IEventAggregator _eventAggregator;
 
     public string SelectedItem
     {
