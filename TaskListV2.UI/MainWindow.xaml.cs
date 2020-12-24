@@ -18,7 +18,6 @@ namespace TaskListV2.UI
       SlideGridAddTask.Width = 0;
       SlideGridEditTask.Width = 0;
       RefreshAddNewTaskFields();
-
     }
 
     private void RefreshAddNewTaskFields()
@@ -30,8 +29,6 @@ namespace TaskListV2.UI
       ImportantCheckBoxCreate.IsChecked = false;
       dt_StartDateFrom.SelectedDate = DateTime.Today;
       PopUpOpenButton.IsDefault = true;
-
-
     }
 
     private void MainWindow_Loaded(object sender, RoutedEventArgs e)
@@ -80,7 +77,6 @@ namespace TaskListV2.UI
       PopUpOpenButton.IsDefault = true;
       CreateTaskButton.IsDefault = false;
       EditTaskButton.IsDefault = false;
-
     }
 
     private void SlideGridBackButton_Click(object sender, RoutedEventArgs e)
@@ -93,10 +89,7 @@ namespace TaskListV2.UI
       EditTaskButton.IsDefault = false;
       SlideGridBackButton.IsDefault = false;
       PopUpOpenButton.Focus();
-
-
     }
-
 
     private void ListViewTaskList_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
     {
@@ -105,7 +98,6 @@ namespace TaskListV2.UI
       EditTaskButton.IsDefault = true;
       CreateTaskButton.IsDefault = false;
       PopUpOpenButton.IsDefault = false;
-
     }
 
     private void SlideGridEditBackButton_Click(object sender, RoutedEventArgs e)
@@ -117,7 +109,6 @@ namespace TaskListV2.UI
       CreateTaskButton.IsDefault = false;
       EditTaskButton.IsDefault = false;
       PopUpOpenButton.Focus();
-
     }
 
     private void EditTaskButton_Click(object sender, RoutedEventArgs e)
@@ -128,10 +119,6 @@ namespace TaskListV2.UI
       CreateTaskButton.IsDefault = false;
       EditTaskButton.IsDefault = false;
       PopUpOpenButton.Focus();
-
-
-
-
     }
 
     private void GrayEditArea_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -142,9 +129,6 @@ namespace TaskListV2.UI
       PopUpOpenButton.IsDefault = true;
       CreateTaskButton.IsDefault = false;
       EditTaskButton.IsDefault = false;
-
-
-
     }
 
     private void GrayCreateArea_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -155,15 +139,11 @@ namespace TaskListV2.UI
       PopUpOpenButton.IsDefault = true;
       EditTaskButton.IsDefault = false;
       CreateTaskButton.IsDefault = false;
-
     }
-
-
 
     private void CheckBox_Checked(object sender, RoutedEventArgs e)
     {
       _viewModel.RefreshTasksAfterComplete();
-
     }
 
     private void CreateTaskButton_KeyDown(object sender, KeyEventArgs e)
@@ -172,7 +152,6 @@ namespace TaskListV2.UI
       {
         SlideGridAddTask.Width = 0;
         PopUpOpenButton.Visibility = Visibility.Visible;
-
       }
     }
 
@@ -183,8 +162,6 @@ namespace TaskListV2.UI
         SlideGridEditTask.Width = 0;
         PopUpOpenButton.Visibility = Visibility.Visible;
       }
-
-
     }
 
     private void PopUpOpenButton_KeyDown(object sender, KeyEventArgs e)
@@ -192,7 +169,6 @@ namespace TaskListV2.UI
       if (e.Key == Key.Return)
       {
         SlideGridAddTask.Width = 1100;
-
         PopUpOpenButton.Visibility = Visibility.Hidden;
         ListViewTaskList.SelectedValue = null;
         ToDoTextBox.Focus();
@@ -200,7 +176,6 @@ namespace TaskListV2.UI
         EditTaskButton.IsDefault = false;
         PopUpOpenButton.IsDefault = false;
       }
-
     }
 
     private void Window_MouseDown(object sender, MouseButtonEventArgs e)

@@ -9,9 +9,7 @@ namespace TaskListV2.UI.View
 
     public MenuColumn()
     {
-
       InitializeComponent();
-
     }
 
   }
