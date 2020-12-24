@@ -11,9 +11,22 @@ namespace TaskListV2.UI.View
     public CustomFrame()
     {
       InitializeComponent();
+
+      SettingsArea.Height = 0;
     }
 
+    private void SettingsButton_Click(object sender, System.Windows.RoutedEventArgs e)
+    {
+      if (SettingsArea.Height == 0)
+      {
+        SettingsArea.Height = 600;
+      }
+      else SettingsArea.Height = 0;
+    }
 
+    private void EditTaskButton_Click(object sender, System.Windows.RoutedEventArgs e)
+    {
 
+    }
   }
 }

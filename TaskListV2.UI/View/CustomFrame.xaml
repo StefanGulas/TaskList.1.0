@@ -5,9 +5,17 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TaskListV2.UI.View" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid >
-        <DockPanel Grid.Row="0" Grid.Column="0" Background="#FF070d59">
+             d:DesignHeight="600" d:DesignWidth="970">
+    <Grid x:Name="CustomFrameGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="65"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="400"/>
+        </Grid.ColumnDefinitions>
+        <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Background="#FF070d59">
             <StackPanel VerticalAlignment="Top" Margin="10,0" >
                 <Grid>
                     <materialDesign:MaterialDateDisplay Foreground="White" Background="{x:Null}" HorizontalAlignment="Left"/>
@@ -19,7 +27,7 @@
                         <Button Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray">
                             <materialDesign:PackIcon Kind="BellOutline" Foreground="{DynamicResource MaterialDesignPaper}"/>
                         </Button>
-                        <Button Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray" Margin="5 0 5 0" Cursor="Hand">
+                        <Button x:Name="SettingsButton" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray" Margin="5 0 5 0" Cursor="Hand" Click="SettingsButton_Click">
                             <materialDesign:PackIcon Kind="Settings" Foreground="{DynamicResource MaterialDesignPaper}"/>
                         </Button>
                         <Button x:Name="ButtonFechar" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray" Command="{Binding CloseAppCommand, Mode=OneWay, NotifyOnSourceUpdated=True}" CommandParameter="{Binding}" Cursor="Hand">
@@ -29,5 +37,34 @@
                 </Grid>
             </StackPanel>
         </DockPanel>
+        <Grid x:Name="SettingsArea" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Background="#FF5893d4" >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.Column="2">
+                    <Label Content="Farb Mode" FontSize="20" Foreground="GhostWhite" Margin="10"/>
+                    <RadioButton x:Name="RadioButtonStandardMode" Style="{StaticResource MaterialDesignLightRadioButton}" Margin="10" FontSize="18" Foreground="GhostWhite" Cursor="Hand">Standard Mode</RadioButton>
+                    <RadioButton Style="{StaticResource MaterialDesignLightRadioButton}" x:Name="RadioButtonDarkMode" Margin="10" FontSize="18" Foreground="GhostWhite" Cursor="Hand">Dark Mode</RadioButton>
+                    <!--<RadioButton x:Name="RadioButtonLightMode" Margin="10" FontSize="18">Light Mode</RadioButton>-->
+                </StackPanel>
+                <StackPanel Grid.Column="2" Grid.Row="1" >
+                    <Button VerticalAlignment="Bottom"      x:Name="SettingsBack" Background="DimGray"  Command="{Binding EditTaskCommand}" CommandParameter="{Binding}"
+                             Margin="25" Click="SettingsButton_Click" 
+                                    Style="{StaticResource MaterialDesignIconButton}"
+                             Cursor="Hand">
+                        <materialDesign:PackIcon
+                                Kind="ArrowRight"/>
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </Grid>
     </Grid>
 </UserControl>
