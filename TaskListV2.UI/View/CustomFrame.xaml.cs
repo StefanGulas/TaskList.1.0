@@ -11,6 +11,8 @@ namespace TaskListV2.UI.View
     public CustomFrame()
     {
       InitializeComponent();
+      RadioButtonDeutsch.IsChecked = true;
+      RadioButtonTelefonKlingel.IsChecked = true;
       RadioButtonStandardMode.IsChecked = true;
       SettingsArea.Height = 0;
     }

@@ -1,0 +1,18 @@
+App Ideen:
+	Features	
+		Benachrichtigungen 
+		Wiederholungen 
+		Eigene Kategorien/MenuItems 
+		Mehr Settings, Klingeltöne, Sprache, etc.
+	
+	Solutions
+		SQL Lite App
+		File Storage .json
+		CI/CD
+		Code Behind reduzieren
+		Add und Edit Task in eigener View realisieren
+		Prism Framework mehr einsetzen
+
+
+
+App Roadmap:

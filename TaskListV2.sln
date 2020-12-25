@@ -12,7 +12,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskListV2.Model", "TaskLis
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskListV2.DataAccessNew", "TaskListV2.DataAccessNew\TaskListV2.DataAccessNew.csproj", "{8A0C5ADA-B349-4128-BCF6-B292CDE91700}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskListV2.UITests", "TaskListV2.UITests\TaskListV2.UITests.csproj", "{124BE017-600B-46D7-BB54-FAD2A11A7D5C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskListV2.UITests", "TaskListV2.UITests\TaskListV2.UITests.csproj", "{124BE017-600B-46D7-BB54-FAD2A11A7D5C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Roadmap", "Roadmap", "{C233124D-3C8E-440A-83EC-3358EDE300E8}"
+	ProjectSection(SolutionItems) = preProject
+		Roadmap 25.12.2020.txt = Roadmap 25.12.2020.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
