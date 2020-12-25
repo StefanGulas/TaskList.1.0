@@ -11,7 +11,7 @@ namespace TaskListV2.UI.View
     public CustomFrame()
     {
       InitializeComponent();
-
+      RadioButtonStandardMode.IsChecked = true;
       SettingsArea.Height = 0;
     }
 
