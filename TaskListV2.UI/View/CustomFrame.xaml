@@ -5,11 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TaskListV2.UI.View" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="65" d:DesignWidth="800">
-    <Grid>
-        <!--<DockPanel Background="#FF070d59">-->
-        <DockPanel Background="Green">
-            <StackPanel VerticalAlignment="Top" Margin="10,0" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown">
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid >
+        <DockPanel Grid.Row="0" Grid.Column="0" Background="#FF070d59">
+            <StackPanel VerticalAlignment="Top" Margin="10,0" >
                 <Grid>
                     <materialDesign:MaterialDateDisplay Foreground="White" Background="{x:Null}" HorizontalAlignment="Left"/>
 
@@ -20,10 +19,10 @@
                         <Button Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray">
                             <materialDesign:PackIcon Kind="BellOutline" Foreground="{DynamicResource MaterialDesignPaper}"/>
                         </Button>
-                        <Button Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray" Margin="5 0 5 0">
+                        <Button Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray" Margin="5 0 5 0" Cursor="Hand">
                             <materialDesign:PackIcon Kind="Settings" Foreground="{DynamicResource MaterialDesignPaper}"/>
                         </Button>
-                        <Button x:Name="ButtonFechar" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray" Click="{Binding }">
+                        <Button x:Name="ButtonFechar" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray" Click="ButtonFechar_Click">
                             <materialDesign:PackIcon Kind="Power" Foreground="{DynamicResource MaterialDesignPaper}"/>
                         </Button>
                     </StackPanel>

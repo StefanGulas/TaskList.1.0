@@ -39,7 +39,7 @@
 
         <views:CustomFrame Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
         <views:MenuColumn Grid.Row="1" Grid.Column="0"/>
-       <!--<views:TaskColumn Grid.Row="1" Grid.Column="1" />-->
+        <views:TaskColumn Grid.Row="1" Grid.Column="1" />
         
 
 
@@ -134,7 +134,7 @@
             <Grid x:Name="GrayCreateArea" Grid.Column="0" Background="White" Opacity="0.4" MouseLeftButtonDown="GrayCreateArea_MouseLeftButtonDown">
 
             </Grid>
-            <Grid Grid.Column="1" HorizontalAlignment="Right"  Background="#FF1f4287  " Width="400" Margin="0 55 0 0">
+            <Grid Grid.Column="1" HorizontalAlignment="Right"  Background="#FF1f4287  " Width="400" Margin="0 0 0 0">
             <StackPanel Margin="0 15"   
                             VerticalAlignment="Bottom" >
 
@@ -223,7 +223,7 @@
             <Grid x:Name="GrayEditArea" Grid.Column="0" Background="White" Opacity="0.4" MouseLeftButtonDown="GrayEditArea_MouseLeftButtonDown">
                 
             </Grid>    
-        <Grid Grid.Column="1" HorizontalAlignment="Right"  Background="#FF1f4287  " Width="400" Margin="0 55 0 0">
+        <Grid Grid.Column="1" HorizontalAlignment="Right"  Background="#FF1f4287  " Width="400" Margin="0 0 0 0">
             <StackPanel Margin="0 15"   
                             VerticalAlignment="Bottom" >
 
