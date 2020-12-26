@@ -13,8 +13,14 @@ App Ideen:
 		Add und Edit Task in eigener View realisieren
 		Prism Framework mehr einsetzen
 
+	Bugs
+		IsDefault Page nachdem Settingspage aufgerufen wurde bleibt Settingspage
+
 
 
 App Roadmap:
-	Settings DarkMode implementieren
+	MainWindow weiter in kleinere Views aufteilen
+	SQL Lite implementieren
+	Settings Page vollständig Implementieren
+
 	
