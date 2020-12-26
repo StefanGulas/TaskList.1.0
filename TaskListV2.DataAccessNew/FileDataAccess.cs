@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using Newtonsoft.Json;
 using TaskListV2.Model;
@@ -9,12 +10,43 @@ namespace TaskListV2.DataAccessNew
 {
   public class FileDataAccess : IDataAccessV2
   {
-    private const string StorageFile = "Task.json";
+    private const string StorageFile = "tasks.json";
 
 
-    public void CreateTask(string name, bool Complete, bool Important, DateTime Due, Reminder Reminder, Category Category, Repetition Repetition)
+    public void CreateTask(string name, bool complete, bool important, DateTime due, Reminder reminder, Category category, Repetition repetition)
     {
-      throw new NotImplementedException();
+      var task = new Task
+      {
+        TaskName = name,
+        TaskComplete = complete,
+        IsImportant = important,
+        DueDate = due,
+        Reminder = reminder,
+        TaskCategory = category,
+        TaskRepetition = repetition,
+      };
+
+      var tasks = ReadFromFile();
+      var maxFriendId = tasks.Count == 0 ? 0 : tasks.Max(f => f.TaskId);
+      task.TaskId = maxFriendId + 1;
+      tasks.Add(task);
+      SaveToFile(tasks);
+    }
+
+    private void SaveToFile(List<Task> taskList)
+    {
+      string json = JsonConvert.SerializeObject(taskList, Formatting.Indented);
+      File.WriteAllText(StorageFile, json);
+    }
+
+    public void TaskIsComplete(bool complete, int Id)
+    {
+      var tasks = ReadFromFile();
+      foreach (var task in tasks)
+      {
+        if (task.TaskId == Id) task.TaskComplete = true;
+      }
+      SaveToFile(tasks);
     }
 
     public void EditTask(int taskId, string name, Category category, DateTime due, Reminder reminder, Repetition repetition, bool important, bool complete)
@@ -37,10 +69,6 @@ namespace TaskListV2.DataAccessNew
       throw new NotImplementedException();
     }
 
-    public void TaskIsComplete(bool complete, int TaskId)
-    {
-      throw new NotImplementedException();
-    }
 
     public IEnumerable<Task> Today()
     {
