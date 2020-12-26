@@ -1,5 +1,5 @@
 ﻿using System.Windows.Controls;
-using TaskListV2.UI.ViewModel;
+using TaskListV2.UI;
 
 namespace TaskListV2.UI.View
 {
@@ -23,7 +23,10 @@ namespace TaskListV2.UI.View
       {
         SettingsArea.Height = 600;
       }
-      else SettingsArea.Height = 0;
+      else
+      {
+        SettingsArea.Height = 0;
+      }
     }
 
     private void EditTaskButton_Click(object sender, System.Windows.RoutedEventArgs e)

@@ -3,7 +3,7 @@ App Ideen:
 		Benachrichtigungen 
 		Wiederholungen 
 		Eigene Kategorien/MenuItems 
-		Mehr Settings, Klingeltöne, Sprache, etc.
+		Settings - Save Settings, Modes, etc.
 	
 	Solutions
 		SQL Lite App
@@ -16,3 +16,5 @@ App Ideen:
 
 
 App Roadmap:
+	Settings DarkMode implementieren
+	
