@@ -16,7 +16,7 @@
             <ColumnDefinition Width="400"/>
         </Grid.ColumnDefinitions>
         <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Background="#FF070d59">
-            <StackPanel VerticalAlignment="Top" Margin="10,0" >
+            <StackPanel VerticalAlignment="Top" Margin="10 5 10 0" >
                 <Grid>
 <!--CustomFrame-->                   <materialDesign:MaterialDateDisplay Foreground="White" Background="{x:Null}" HorizontalAlignment="Left"/>
 

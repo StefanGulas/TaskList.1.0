@@ -45,7 +45,7 @@
                         <RowDefinition/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-                    <ListView MouseDoubleClick="ListViewTaskList_MouseLeftButtonDown" x:Name="ListViewTaskList" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="White" Grid.Row="0"  Margin="10 0 0 0" FontSize="14" ItemsSource="{Binding Tasks, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    <ListView MouseDoubleClick="ListViewTaskList_MouseLeftButtonDown" x:Name="ListViewTaskList" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="White" Grid.Row="0"  Margin="10 0 0 0" FontSize="12" ItemsSource="{Binding Tasks, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                   SelectedItem="{Binding SelectedTask, UpdateSourceTrigger=PropertyChanged}"  >
 
                         <ListView.View>
