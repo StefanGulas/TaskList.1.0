@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using Newtonsoft.Json;
 using TaskListV2.Model;
 
@@ -51,7 +50,16 @@ namespace TaskListV2.DataAccessNew
 
     public void EditTask(int taskId, string name, Category category, DateTime due, Reminder reminder, Repetition repetition, bool important, bool complete)
     {
-      throw new NotImplementedException();
+      var tasks = ReadFromFile();
+      var task = tasks.Single(f => f.TaskId == taskId);
+      task.TaskName = name;
+      task.TaskComplete = complete;
+      task.IsImportant = important;
+      task.DueDate = due;
+      task.Reminder = reminder;
+      task.TaskCategory = category;
+      task.TaskRepetition = repetition;
+      SaveToFile(tasks);
     }
 
     public IEnumerable<Task> GetTasks()
@@ -81,9 +89,9 @@ namespace TaskListV2.DataAccessNew
         return new List<Task>
                 {
                     new Task{TaskId=1,TaskName = "Buch kaufen",TaskCategory=0,
-                        IsImportant = true},
+                        IsImportant = true, DueDate = DateTime.Now},
                      new Task{TaskId=2,TaskName = "Shoppen",TaskCategory=0,
-                        IsImportant = false}
+                        IsImportant = false, DueDate = DateTime.Now}
                 };
       }
 
