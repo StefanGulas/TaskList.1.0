@@ -41,10 +41,8 @@ namespace TaskListV2.DataAccessNew
     public void TaskIsComplete(bool complete, int Id)
     {
       var tasks = ReadFromFile();
-      foreach (var task in tasks)
-      {
-        if (task.TaskId == Id) task.TaskComplete = true;
-      }
+      var task = tasks.Single(f => f.TaskId == Id);
+      task.TaskComplete = true;
       SaveToFile(tasks);
     }
 
@@ -69,18 +67,40 @@ namespace TaskListV2.DataAccessNew
 
     public IEnumerable<Task> Important()
     {
-      throw new NotImplementedException();
+      var tasks = ReadFromFile();
+      var newTasks = new List<Task>();
+      foreach (var task in tasks)
+      {
+        if (task.IsImportant == true) newTasks.Add(task);
+      }
+      return newTasks;
     }
 
     public IEnumerable<Task> Planned()
     {
-      throw new NotImplementedException();
+      DateTime nowTime = DateTime.Now.Date;
+      //string endTime = nowTime.ToString("dd.MM.yyyy");
+      DateTime beforeTime = DateTime.Now.Date.AddDays(7);
+      //string startTime = beforeTime.ToString("dd.MM.yyyy");
+      var tasks = ReadFromFile();
+      var newTasks = new List<Task>();
+      foreach (var task in tasks)
+      {
+        if (task.DueDate <= beforeTime && task.DueDate >= nowTime) newTasks.Add(task); 
+      }
+      return newTasks;
     }
 
 
     public IEnumerable<Task> Today()
     {
-      throw new NotImplementedException();
+      var tasks = ReadFromFile();
+      var newTasks = new List<Task>();
+      foreach (var task in tasks)
+      {
+        if (task.DueDate == DateTime.Now.Date) newTasks.Add(task);
+      }
+      return newTasks;
     }
     private List<Task> ReadFromFile()
     {
