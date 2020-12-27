@@ -6,9 +6,9 @@ namespace TaskListV2.DataAccessNew
 {
     public static class HelperDataAccess
     {
-        public static IDbConnection Conn()
+        public static IDbConnection Conn(string connectionString)
         {
-            return new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionToSql"].ConnectionString);
+            return new SqlConnection(ConfigurationManager.ConnectionStrings[connectionString].ConnectionString);
 
         }
     }
