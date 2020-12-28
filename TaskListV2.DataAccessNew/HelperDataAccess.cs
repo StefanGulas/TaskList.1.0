@@ -1,7 +1,7 @@
 ﻿using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-
+using System.Data.SQLite;
 
 namespace TaskListV2.DataAccessNew
 {
@@ -9,7 +9,7 @@ namespace TaskListV2.DataAccessNew
     {
         public static IDbConnection Conn(string connectionString)
         {
-            return new SqlConnection(ConfigurationManager.ConnectionStrings[connectionString].ConnectionString);
+            return new SQLiteConnection(ConfigurationManager.ConnectionStrings[connectionString].ConnectionString);
 
         }
     }

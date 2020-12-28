@@ -35,9 +35,12 @@ namespace TaskListV2.Model
 
   public class Task
   {
-
-
+    private bool taskComplete;
     public int TaskId { get; set; }
+    private bool _isImportant;
+    private DateTime _dueDate;
+
+
 
     public string TaskName { get; set; }
 
@@ -52,7 +55,6 @@ namespace TaskListV2.Model
       }
     }
 
-    private bool _isImportant;
     public bool IsImportant
     {
       get { return _isImportant; }
@@ -61,8 +63,6 @@ namespace TaskListV2.Model
 
     public Category TaskCategory { get; set; }
 
-    private DateTime _dueDate;
-    private bool taskComplete;
 
     public DateTime DueDate
     {
