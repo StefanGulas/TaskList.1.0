@@ -57,7 +57,7 @@ namespace TaskListV2.DataAccessNew
       return Connect(getTasks);
     }
 
-    public void CreateTask(string name, bool Complete, bool Important, DateTime Due, Reminder Reminder, Category Category, Repetition Repetition)
+    public void CreateTask(string name, bool Complete, bool Important, DateTime Due, Reminder Reminder, Category Category, Repetition Repetition, String DueString)
     {
       using var con = HelperDataAccess.Conn(connectionString);
 

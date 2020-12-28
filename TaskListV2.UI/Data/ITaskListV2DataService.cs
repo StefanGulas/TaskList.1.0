@@ -10,7 +10,7 @@ namespace TaskListV2.UI.Data
         IEnumerable<Task> Planned();
         IEnumerable<Task> Today();
         IEnumerable<Task> Important();
-        void CreateTask(string name, bool complete, bool important, DateTime due, Reminder reminder, Category category, Repetition repetition);
+        void CreateTask(string name, bool complete, bool important, DateTime due, Reminder reminder, Category category, Repetition repetition, String DueString);
         void EditTask(int taskId, string name, Category category, DateTime due, Reminder reminder, Repetition repetition, bool important, bool complete);
         void TaskIsComplete(bool complete, int TaksId);
   }
