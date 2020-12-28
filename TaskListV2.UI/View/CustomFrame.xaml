@@ -62,10 +62,10 @@
                 </StackPanel>
 <!--Benachrichtungstöne-->
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1">
-                    <Label Content="Benachrichtigungstöne" FontSize="16" Foreground="GhostWhite" Margin="5 10"/>
-                    <RadioButton x:Name="RadioButtonTelefonKlingel" Style="{StaticResource MaterialDesignLightRadioButton}" Margin="10" FontSize="14" Foreground="GhostWhite" Cursor="Hand">Telefonklingel</RadioButton>
-                    <RadioButton Style="{StaticResource MaterialDesignLightRadioButton}" x:Name="RadioButtonMozart" Margin="10" FontSize="14" Foreground="GhostWhite" Cursor="Hand">Eine Kleine Nachtmusik</RadioButton>
-                    <RadioButton x:Name="RadioButtonPinkPanther" Margin="10" Foreground="GhostWhite" Style="{StaticResource MaterialDesignLightRadioButton}" FontSize="14">Pink Panther</RadioButton>
+                    <Label Content="Datenbank" FontSize="16" Foreground="GhostWhite" Margin="5 10"/>
+                    <RadioButton x:Name="RadioButtonTelefonKlingel" Style="{StaticResource MaterialDesignLightRadioButton}" Margin="10" FontSize="14" Foreground="GhostWhite" Cursor="Hand">Json Datei</RadioButton>
+                    <RadioButton Style="{StaticResource MaterialDesignLightRadioButton}" x:Name="RadioButtonMozart" Margin="10" FontSize="14" Foreground="GhostWhite" Cursor="Hand">SQLite</RadioButton>
+                    <RadioButton x:Name="RadioButtonPinkPanther" Margin="10" Foreground="GhostWhite" Style="{StaticResource MaterialDesignLightRadioButton}" FontSize="14">Sql Server</RadioButton>
                 </StackPanel>
 <!--Sprache-->
 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="1" Grid.Column="2">

@@ -21,6 +21,8 @@ App Ideen:
 App Roadmap:
 	MainWindow weiter in kleinere Views aufteilen
 	SQL Lite implementieren
-	Settings Page vollständig Implementieren
+	Settings Page vollständig Implementieren 
+	Config File implementieren um die Settings zu speichern (z.B. welche Datenbank)
+
 
 	
