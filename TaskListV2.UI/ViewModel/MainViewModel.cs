@@ -52,6 +52,7 @@ namespace TaskListV2.UI.ViewModel
 
       foreach (var task in tasks)
       {
+        //        DueDate = DueString;
         if (!task.TaskComplete) Tasks.Add(task);
         if (task.IsImportant) task.ImportantStar = "Visible";
         else task.ImportantStar = "Hidden";
@@ -134,7 +135,7 @@ namespace TaskListV2.UI.ViewModel
     {
       Name = _selectedTask.TaskName;
       Category = _selectedTask.TaskCategory;
-      Due = _selectedTask.DueDate;
+      Due = DateTime.Parse(_selectedTask.DueString);
       Reminder = _selectedTask.Reminder;
       Repetition = _selectedTask.TaskRepetition;
       Important = _selectedTask.IsImportant;

@@ -18,15 +18,6 @@ namespace TaskListV2.DataAccessNew
     string connectionString = "ConnectionToSQLite";
 
 
-    //  IEnumerable<Task> taskList = new System.Collections.ObjectModel.ObservableCollection<Task>(con.Query<Task>(sqlQuery).ToList());
-
-    //  con.Close();
-
-    //  return taskList;
-
-    //}
-
-
     public IEnumerable<Task> Connect(string sqlQuery)
     {
       using var con = HelperDataAccess.Conn(connectionString);
@@ -45,8 +36,6 @@ namespace TaskListV2.DataAccessNew
       string getTasks = "SELECT * FROM tasks Where TaskComplete = 0 ORDER BY DueString DESC";
       return Connect(getTasks);
     }
-
-
 
     public IEnumerable<Task> Important()
     {
