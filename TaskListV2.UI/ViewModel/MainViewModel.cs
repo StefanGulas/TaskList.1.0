@@ -21,6 +21,7 @@ namespace TaskListV2.UI.ViewModel
     private ObservableCollection<Task> _tasks;
     private Reminder _reminder = 0;
     private Task _myTask;
+    private DateTime _due = DateTime.Now;
     private Repetition _repetition = 0;
     private Category _category = 0;
     private bool _complete;
@@ -236,7 +237,6 @@ namespace TaskListV2.UI.ViewModel
     }
 
 
-    private DateTime _due = DateTime.Now;
     public DateTime Due
     {
       get { return _due; }

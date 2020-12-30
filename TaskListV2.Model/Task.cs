@@ -70,7 +70,7 @@ namespace TaskListV2.Model
       get { return _dueDate.Date; }
       set
       {
-        _dueDate = DateTime.Parse(_dueString);
+        _dueDate = value;
       }
     }
 

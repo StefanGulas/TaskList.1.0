@@ -12,7 +12,7 @@ namespace TaskListV2.DataAccessNew
     private const string StorageFile = "tasks.json";
 
 
-    public void CreateTask(string name, bool complete, bool important, DateTime due, Reminder reminder, Category category, Repetition repetition, String DueString)
+    public void CreateTask(string name, bool complete, bool important, DateTime due, Reminder reminder, Category category, Repetition repetition)
     {
       var task = new Task
       {
