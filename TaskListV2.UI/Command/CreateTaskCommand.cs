@@ -35,7 +35,7 @@ namespace TaskListV2.UI.Command
       {
 
         mainViewModel.Tasks.Add(new Task() { TaskName = mainViewModel.Name, TaskComplete = mainViewModel.Complete, IsImportant = mainViewModel.Important, DueDate = mainViewModel.Due, Reminder = mainViewModel.Reminder, TaskCategory = mainViewModel.Category, TaskRepetition = mainViewModel.Repetition });
-      _taskDataService.CreateTask(mainViewModel.Name, mainViewModel.Complete, mainViewModel.Important, mainViewModel.Due, mainViewModel.Reminder, mainViewModel.Category, mainViewModel.Repetition, mainViewModel.Due.ToString());
+      _taskDataService.CreateTask(mainViewModel.Name, mainViewModel.Complete, mainViewModel.Important, mainViewModel.Due, mainViewModel.Reminder, mainViewModel.Category, mainViewModel.Repetition, mainViewModel.Due.ToString("dd. MMM. yyyy"));
       mainViewModel.Name = "";
       mainViewModel.Category = 0;
       mainViewModel.RefreshTasks();

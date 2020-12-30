@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.SQLite;
 using System.Linq;
@@ -32,7 +33,7 @@ namespace TaskListV2.DataAccessNew
 
       con.Open();
 
-      IEnumerable<Task> taskList = new System.Collections.ObjectModel.ObservableCollection<Task>(con.Query<Task>(sqlQuery).ToList());
+      IEnumerable<Task> taskList = new ObservableCollection<Task>(con.Query<Task>(sqlQuery).ToList());
 
       con.Close();
 
@@ -41,9 +42,9 @@ namespace TaskListV2.DataAccessNew
     public IEnumerable<Task> GetTasks()
     {
       //string getTasks = "SELECT * FROM Tasks WHERE TaskComplete = 'false' ORDER BY DueDate ASC";
-      string getTasks = "SELECT TaskId, TaskName, Reminder, TaskRepetition,  cast(IsImportant as Boolean) FROM tasks ";
+      string getTasks = "SELECT TaskId, TaskName, Reminder, TaskRepetition, DueString, IsImportant, TaskComplete FROM tasks Where TaskComplete == 0 ORDER BY DueString";
       return Connect(getTasks);
-    } 
+    }
 
 
 
@@ -78,9 +79,9 @@ namespace TaskListV2.DataAccessNew
       con.Open();
 
       string insertTask = "INSERT INTO Tasks (TaskName, TaskComplete, IsImportant, TaskCategory, DueString, Reminder, TaskRepetition) VALUES" +
-          "(@TaskName, @TaskComplete, @IsImportant, @TaskCategory, @DueDate, @Reminder, @TaskRepetition)";
+          "(@TaskName, @TaskComplete, @IsImportant, @TaskCategory, @DueString, @Reminder, @TaskRepetition)";
 
-      var affectedRows = con.Execute(insertTask, new { TaskName = name, TaskComplete = Complete, IsImportant = Important, TaskCategory = Category, DueDate = DueString, Reminder, TaskRepetition = Repetition });
+      var affectedRows = con.Execute(insertTask, new { TaskName = name, TaskComplete = Complete, IsImportant = Important, TaskCategory = Category, DueString = DueString, Reminder, TaskRepetition = Repetition });
 
       con.Close();
     }
@@ -90,7 +91,7 @@ namespace TaskListV2.DataAccessNew
 
       con.Open();
 
-      String dapperChecked = "UPDATE Tasks SET TaskName = '" + name + "', TaskCategory = '" + (int)category + "', DueDate = '" + due + "', Reminder = '" + (int)reminder + "', TaskRepetition = '" + (int)repetition + "', IsImportant = '" + Convert.ToInt32(important) + "' WHERE TaskId = '" + taskId + "'";
+      String dapperChecked = "UPDATE Tasks SET TaskName = '" + name + "', TaskCategory = '" + (int)category + "', DueDate = '" + due + "', Reminder = '" + (int)reminder + "', TaskRepetition = '" + (int)repetition + "', IsImportant = '" + important + "' WHERE TaskId = '" + taskId + "'";
 
       var affectedRows = con.Execute(dapperChecked, new { TaskName = name, IsImportant = Convert.ToInt32(important), TaskCategory = (int)category, DueDate = due, Reminder = (int)reminder, TaskRepetition = (int)repetition });
 

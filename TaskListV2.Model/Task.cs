@@ -1,8 +1,8 @@
-﻿  using System;
+﻿using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace TaskListV2.Model 
+namespace TaskListV2.Model
 {
   public enum Category
   {
@@ -39,6 +39,7 @@ namespace TaskListV2.Model
     public int TaskId { get; set; }
     private bool _isImportant;
     private DateTime _dueDate;
+    private string _dueString;
 
 
 
@@ -67,7 +68,10 @@ namespace TaskListV2.Model
     public DateTime DueDate
     {
       get { return _dueDate.Date; }
-      set { _dueDate = value.Date; }
+      set
+      {
+        _dueDate = DateTime.Parse(_dueString);
+      }
     }
 
     public Reminder Reminder { get; set; }
@@ -76,8 +80,8 @@ namespace TaskListV2.Model
 
     public string DueString
     {
-      get { return _dueDate.Date.ToString("dd. MMM. yyyy"); }
-      set {; }
+      get { return _dueString; }
+      set { _dueString = value; }
     }
 
     public string ImportantStar { get; set; }
