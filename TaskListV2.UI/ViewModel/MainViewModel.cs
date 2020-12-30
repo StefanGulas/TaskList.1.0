@@ -52,7 +52,8 @@ namespace TaskListV2.UI.ViewModel
 
       foreach (var task in tasks)
       {
-        //        DueDate = DueString;
+        task.DueDate = DateTime.Parse(task.DueString).Date;
+        task.DueString = task.DueDate.ToString("dd. MMM yyyy");
         if (!task.TaskComplete) Tasks.Add(task);
         if (task.IsImportant) task.ImportantStar = "Visible";
         else task.ImportantStar = "Hidden";
@@ -89,6 +90,8 @@ namespace TaskListV2.UI.ViewModel
       Tasks.Clear();
       foreach (var task in tasks)
       {
+        task.DueDate = DateTime.Parse(task.DueString).Date;
+        task.DueString = task.DueDate.ToString("dd. MMM yyyy");
         if (!task.TaskComplete) Tasks.Add(task);
         if (task.IsImportant) task.ImportantStar = "Visible";
         else task.ImportantStar = "Hidden";

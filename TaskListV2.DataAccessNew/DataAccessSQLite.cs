@@ -33,7 +33,7 @@ namespace TaskListV2.DataAccessNew
     public IEnumerable<Task> GetTasks()
     {
 
-      string getTasks = "SELECT * FROM tasks Where TaskComplete = 0 ORDER BY DueString DESC";
+      string getTasks = "SELECT * FROM tasks Where TaskComplete = 0 ORDER BY DueString ASC";
       return Connect(getTasks);
     }
 
