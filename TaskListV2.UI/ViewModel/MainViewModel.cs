@@ -49,11 +49,19 @@ namespace TaskListV2.UI.ViewModel
     {
       var tasks = _taskDataService.GetAll();
       Tasks.Clear();
-
+      tasks = tasks.OrderBy(task => task.DueDate);
       foreach (var task in tasks)
       {
-        task.DueDate = DateTime.Parse(task.DueString).Date;
-        task.DueString = task.DueDate.ToString("dd. MMM yyyy");
+        if (task.DueDate == DateTime.MinValue)
+        {
+          task.DueDate = DateTime.Parse(task.DueString).Date;
+          task.DueString = task.DueDate.ToString("dd. MMM yyyy");
+        }
+        else
+        {
+          task.DueString = task.DueDate.ToString("dd. MMM yyyy");
+          task.DueDate = DateTime.Parse(task.DueString).Date;
+        }
         if (!task.TaskComplete) Tasks.Add(task);
         if (task.IsImportant) task.ImportantStar = "Visible";
         else task.ImportantStar = "Hidden";
@@ -88,10 +96,21 @@ namespace TaskListV2.UI.ViewModel
         _ => _taskDataService.GetAll(),
       };
       Tasks.Clear();
+      tasks = tasks.OrderBy(task => task.DueDate);
       foreach (var task in tasks)
       {
-        task.DueDate = DateTime.Parse(task.DueString).Date;
-        task.DueString = task.DueDate.ToString("dd. MMM yyyy");
+        if (task.DueDate == DateTime.MinValue)
+        {
+          task.DueDate = DateTime.Parse(task.DueString).Date;
+          task.DueString = task.DueDate.ToString("dd. MMM yyyy");
+        }
+        else
+        {
+          task.DueString = task.DueDate.ToString("dd. MMM yyyy");
+          task.DueDate = DateTime.Parse(task.DueString).Date;
+        }
+
+
         if (!task.TaskComplete) Tasks.Add(task);
         if (task.IsImportant) task.ImportantStar = "Visible";
         else task.ImportantStar = "Hidden";

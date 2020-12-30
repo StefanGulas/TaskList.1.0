@@ -7,11 +7,16 @@ namespace TaskListV2.DataAccessNew
 {
     public static class HelperDataAccess
     {
-        public static IDbConnection Conn(string connectionString)
+        public static IDbConnection ConnSql(string connectionString)
         {
-            return new SQLiteConnection(ConfigurationManager.ConnectionStrings[connectionString].ConnectionString);
+            return new SqlConnection(ConfigurationManager.ConnectionStrings[connectionString].ConnectionString);
 
         }
+    public static IDbConnection ConnSQLite(string connectionString)
+    {
+      return new SQLiteConnection(ConfigurationManager.ConnectionStrings[connectionString].ConnectionString);
+
     }
+  }
 }
 

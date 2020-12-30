@@ -1,8 +1,8 @@
-﻿using Dapper;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using Dapper;
 using TaskListV2.Model;
 
 
@@ -10,12 +10,12 @@ namespace TaskListV2.DataAccessNew
 {
   public class DataAccessV2 : IDataAccessV2
   {
-    
+
     string connectionString = "ConnectionToSql";
-    
+
     public IEnumerable<Task> Connect(string sqlQuery)
     {
-      using var con = HelperDataAccess.Conn(connectionString);
+      using var con = HelperDataAccess.ConnSql(connectionString);
 
       con.Open();
 
@@ -59,7 +59,7 @@ namespace TaskListV2.DataAccessNew
 
     public void CreateTask(string name, bool Complete, bool Important, DateTime Due, Reminder Reminder, Category Category, Repetition Repetition)
     {
-      using var con = HelperDataAccess.Conn(connectionString);
+      using var con = HelperDataAccess.ConnSql(connectionString);
 
       con.Open();
 
@@ -72,18 +72,18 @@ namespace TaskListV2.DataAccessNew
     }
     public void EditTask(int taskId, string name, Category category, DateTime due, Reminder reminder, Repetition repetition, bool important, bool complete)
     {
-      using var con = HelperDataAccess.Conn(connectionString);
+      using var con = HelperDataAccess.ConnSql(connectionString);
 
       con.Open();
-      
-      String dapperChecked = "UPDATE Tasks SET TaskName = '"+name+"', TaskCategory = '"+(int)category+"', DueDate = '"+due+"', Reminder = '"+(int)reminder+"', TaskRepetition = '"+(int)repetition+"', IsImportant = '"+important+"' WHERE TaskId = '"+taskId+"'";
 
-      var affectedRows = con.Execute(dapperChecked, new { TaskName = name, IsImportant = important, TaskCategory = (int)category, DueDate = due, Reminder = (int)reminder, TaskRepetition = (int)repetition });      
-      
+      String dapperChecked = "UPDATE Tasks SET TaskName = '" + name + "', TaskCategory = '" + (int)category + "', DueDate = '" + due + "', Reminder = '" + (int)reminder + "', TaskRepetition = '" + (int)repetition + "', IsImportant = '" + important + "' WHERE TaskId = '" + taskId + "'";
+
+      var affectedRows = con.Execute(dapperChecked, new { TaskName = name, IsImportant = important, TaskCategory = (int)category, DueDate = due, Reminder = (int)reminder, TaskRepetition = (int)repetition });
+
     }
     public void TaskIsComplete(bool complete, int taskId)
     {
-      using var con = HelperDataAccess.Conn(connectionString);
+      using var con = HelperDataAccess.ConnSql(connectionString);
 
       con.Open();
       String dapperChecked = "UPDATE Tasks SET TaskComplete = '" + complete + "' WHERE TaskId = '" + taskId + "'";

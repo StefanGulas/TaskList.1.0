@@ -23,6 +23,7 @@ namespace TaskListV2.DataAccessNew
         Reminder = reminder,
         TaskCategory = category,
         TaskRepetition = repetition,
+        DueString = due.ToString("yyyy.MM.dd")
       };
 
       var tasks = ReadFromFile();
@@ -48,6 +49,7 @@ namespace TaskListV2.DataAccessNew
 
     public void EditTask(int taskId, string name, Category category, DateTime due, Reminder reminder, Repetition repetition, bool important, bool complete)
     {
+      string dueString = due.Date.ToString("yyyy.MM.dd");
       var tasks = ReadFromFile();
       var task = tasks.Single(f => f.TaskId == taskId);
       task.TaskName = name;
@@ -57,6 +59,7 @@ namespace TaskListV2.DataAccessNew
       task.Reminder = reminder;
       task.TaskCategory = category;
       task.TaskRepetition = repetition;
+      task.DueString = dueString;
       SaveToFile(tasks);
     }
 
@@ -86,7 +89,7 @@ namespace TaskListV2.DataAccessNew
       var newTasks = new List<Task>();
       foreach (var task in tasks)
       {
-        if (task.DueDate <= beforeTime && task.DueDate >= nowTime) newTasks.Add(task); 
+        if (task.DueDate <= beforeTime && task.DueDate >= nowTime) newTasks.Add(task);
       }
       return newTasks;
     }

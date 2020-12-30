@@ -20,7 +20,7 @@ namespace TaskListV2.DataAccessNew
 
     public IEnumerable<Task> Connect(string sqlQuery)
     {
-      using var con = HelperDataAccess.Conn(connectionString);
+      using var con = HelperDataAccess.ConnSQLite(connectionString);
 
       con.Open();
 
@@ -65,7 +65,7 @@ namespace TaskListV2.DataAccessNew
     public void CreateTask(string name, bool complete, bool important, DateTime due, Reminder reminder, Category category, Repetition repetition)
     {
       string dueString = due.Date.ToString("yyyy.MM.dd");
-      using var con = HelperDataAccess.Conn(connectionString);
+      using var con = HelperDataAccess.ConnSQLite(connectionString);
 
       con.Open();
 
@@ -87,7 +87,7 @@ namespace TaskListV2.DataAccessNew
     }
     public void EditTask(int taskId, string name, Category category, DateTime due, Reminder reminder, Repetition repetition, bool important, bool complete)
     {
-      using var con = HelperDataAccess.Conn(connectionString);
+      using var con = HelperDataAccess.ConnSQLite(connectionString);
 
       con.Open();
 
@@ -97,7 +97,7 @@ namespace TaskListV2.DataAccessNew
     }
     public void TaskIsComplete(bool complete, int taskId)
     {
-      using var con = HelperDataAccess.Conn(connectionString);
+      using var con = HelperDataAccess.ConnSQLite(connectionString);
 
       con.Open();
       String dapperChecked = "UPDATE Tasks SET TaskComplete = '" + complete + "' WHERE TaskId = '" + taskId + "'";

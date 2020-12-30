@@ -10,9 +10,9 @@ namespace TaskListV2.UI.Startup
   public class Bootstrapper
   {
     //ToDo: connect to the database settings 
-    private static int radioButtonDB = 1;
+    private static int radioButtonDB = 0;
 
-    
+
     public IContainer Bootstrap()
     {
       var builder = new ContainerBuilder();
@@ -33,7 +33,7 @@ namespace TaskListV2.UI.Startup
       {
         builder.RegisterType<FileDataAccess>().As<IDataAccessV2>();
       }
-      if(radioButtonDB == 1)
+      if (radioButtonDB == 1)
       {
         builder.RegisterType<DataAccessSQLite>().As<IDataAccessV2>();
       }
