@@ -10,7 +10,7 @@ namespace TaskListV2.UI.Startup
   public class Bootstrapper
   {
     //ToDo: connect to the database settings 
-    private static int radioButtonDB = 0;
+    private static int radioButtonDB = 2;
 
 
     public IContainer Bootstrap()
