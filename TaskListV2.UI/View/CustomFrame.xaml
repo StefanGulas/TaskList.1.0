@@ -76,7 +76,7 @@
                 </StackPanel>                 
                 <StackPanel Grid.Column="2" Grid.Row="2" >
                     <Button VerticalAlignment="Bottom" HorizontalAlignment="Right"      x:Name="SettingsSave" Background="DimGray"  
-                             Margin="0 30 80 10" Click="SettingsButton_Click" Command="{Binding AppSettingsCommand}" CommandParameter="{Binding}"
+                             Margin="0 30 80 10" Click="SettingsSave_Click"  Command="{Binding AppSettingsCommand}" CommandParameter="{Binding}"
                                     Style="{StaticResource MaterialDesignIconButton}"
                              Cursor="Hand">
                         <materialDesign:PackIcon

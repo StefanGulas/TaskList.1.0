@@ -82,9 +82,7 @@ namespace TaskListV2.DataAccessNew
     public IEnumerable<Task> Planned()
     {
       DateTime nowTime = DateTime.Now.Date;
-      //string endTime = nowTime.ToString("dd.MM.yyyy");
       DateTime beforeTime = DateTime.Now.Date.AddDays(7);
-      //string startTime = beforeTime.ToString("dd.MM.yyyy");
       var tasks = ReadFromFile();
       var newTasks = new List<Task>();
       foreach (var task in tasks)

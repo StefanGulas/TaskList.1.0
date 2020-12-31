@@ -23,7 +23,6 @@ namespace TaskListV2.UI.Command
         if (viewModel.JsonSelected) dbSelected = 0;
         else if (viewModel.SQLiteSelected) dbSelected = 1;
         else if (viewModel.SqlServerSelected) dbSelected = 2;
-        //else dbSelected = 0;
       }
       SaveToFile(dbSelected);
     }

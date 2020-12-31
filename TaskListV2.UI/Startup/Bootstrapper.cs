@@ -11,8 +11,6 @@ namespace TaskListV2.UI.Startup
 {
   public class Bootstrapper
   {
-    //ToDo: connect to the database settings 
-    //private static int radioButtonDB;
 
     private const string SettingsFile = "Settings.json";
     private int radioButtonDB;
@@ -41,7 +39,6 @@ namespace TaskListV2.UI.Startup
       {
         radioButtonDB = 0;
       }
-      //if (radioButtonDB != 0 && radioButtonDB != 1 && radioButtonDB != 2) radioButtonDB = 0;
       if (radioButtonDB == 0)
       {
         builder.RegisterType<FileDataAccess>().As<IDataAccessV2>();
