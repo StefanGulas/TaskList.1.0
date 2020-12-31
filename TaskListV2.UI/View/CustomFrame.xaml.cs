@@ -12,7 +12,7 @@ namespace TaskListV2.UI.View
     {
       InitializeComponent();
       RadioButtonDeutsch.IsChecked = true;
-      RadioButtonTelefonKlingel.IsChecked = true;
+
       RadioButtonStandardMode.IsChecked = true;
       SettingsArea.Height = 0;
     }

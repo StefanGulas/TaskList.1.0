@@ -1,4 +1,6 @@
-﻿using Autofac;
+﻿using System;
+using System.IO;
+using Autofac;
 using Prism.Events;
 using TaskListV2.DataAccessNew;
 using TaskListV2.UI.Data;
@@ -10,8 +12,10 @@ namespace TaskListV2.UI.Startup
   public class Bootstrapper
   {
     //ToDo: connect to the database settings 
-    private static int radioButtonDB = 2;
+    //private static int radioButtonDB;
 
+    private const string SettingsFile = "Settings.json";
+    private int radioButtonDB;
 
     public IContainer Bootstrap()
     {
@@ -29,6 +33,15 @@ namespace TaskListV2.UI.Startup
       builder.RegisterType<CustomFrameViewModel>().As<ICustomFrameViewModel>();
       builder.RegisterType<TaskColumnViewModel>().AsSelf();
       builder.RegisterType<TaskListV2DataService>().As<ITaskListV2DataService>();
+      try
+      {
+        radioButtonDB = Int32.Parse(File.ReadAllText(SettingsFile));
+      }
+      catch (Exception e)
+      {
+        radioButtonDB = 0;
+      }
+      //if (radioButtonDB != 0 && radioButtonDB != 1 && radioButtonDB != 2) radioButtonDB = 0;
       if (radioButtonDB == 0)
       {
         builder.RegisterType<FileDataAccess>().As<IDataAccessV2>();

@@ -30,7 +30,7 @@
                         <Button x:Name="SettingsButton" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray" Margin="5 0 5 0" Cursor="Hand" Click="SettingsButton_Click">
                             <materialDesign:PackIcon Kind="Settings" ToolTip="Einstellungen" Foreground="{DynamicResource MaterialDesignPaper}"/>
                         </Button>
-                        <Button x:Name="ButtonFechar" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray" ToolTip="Schließen" Command="{Binding CloseAppCommand, Mode=OneWay, NotifyOnSourceUpdated=True}" CommandParameter="{Binding}" Cursor="Hand">
+                        <Button x:Name="ButtonFechar" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray" ToolTip="Schließen"  Command="{Binding CloseAppCommand, NotifyOnSourceUpdated=True}" CommandParameter="{Binding}" Cursor="Hand">
                             <materialDesign:PackIcon Kind="Power" Foreground="{DynamicResource MaterialDesignPaper}"/>
                         </Button>
                     </StackPanel>
@@ -63,9 +63,9 @@
 <!--Benachrichtungstöne-->
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1">
                     <Label Content="Datenbank" FontSize="16" Foreground="GhostWhite" Margin="5 10"/>
-                    <RadioButton x:Name="RadioButtonTelefonKlingel" Style="{StaticResource MaterialDesignLightRadioButton}" Margin="10" FontSize="14" Foreground="GhostWhite" Cursor="Hand">Json Datei</RadioButton>
-                    <RadioButton Style="{StaticResource MaterialDesignLightRadioButton}" x:Name="RadioButtonMozart" Margin="10" FontSize="14" Foreground="GhostWhite" Cursor="Hand">SQLite</RadioButton>
-                    <RadioButton x:Name="RadioButtonPinkPanther" Margin="10" Foreground="GhostWhite" Style="{StaticResource MaterialDesignLightRadioButton}" FontSize="14">Sql Server</RadioButton>
+                    <RadioButton IsChecked="{Binding JsonSelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  x:Name="RadioButtonTelefonKlingel" Style="{StaticResource MaterialDesignLightRadioButton}" Margin="10" FontSize="14" Foreground="GhostWhite" Cursor="Hand">Json Datei</RadioButton>
+                    <RadioButton IsChecked="{Binding SQLiteSelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource MaterialDesignLightRadioButton}" x:Name="RadioButtonMozart" Margin="10" FontSize="14" Foreground="GhostWhite" Cursor="Hand">SQLite</RadioButton>
+                    <RadioButton IsChecked="{Binding SqlServerSelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="RadioButtonPinkPanther" Margin="10" Foreground="GhostWhite" Style="{StaticResource MaterialDesignLightRadioButton}" FontSize="14">Sql Server</RadioButton>
                 </StackPanel>
 <!--Sprache-->
 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="1" Grid.Column="2">
@@ -76,12 +76,13 @@
                 </StackPanel>                 
                 <StackPanel Grid.Column="2" Grid.Row="2" >
                     <Button VerticalAlignment="Bottom" HorizontalAlignment="Right"      x:Name="SettingsSave" Background="DimGray"  
-                             Margin="0 30 80 10" Click="SettingsButton_Click" 
+                             Margin="0 30 80 10" Click="SettingsButton_Click" Command="{Binding AppSettingsCommand}" CommandParameter="{Binding}"
                                     Style="{StaticResource MaterialDesignIconButton}"
                              Cursor="Hand">
                         <materialDesign:PackIcon
                                 Kind="ContentSave"/>
                     </Button>
+
                 </StackPanel>
             </Grid>
         </Grid>

@@ -23,6 +23,7 @@ App Roadmap:
 	SQL Lite implementieren
 	Settings Page vollständig Implementieren 
 	Config File implementieren um die Settings zu speichern (z.B. welche Datenbank)
-
+	Delegate Command einführen
+	Testing einführen
 
 	
