@@ -56,7 +56,15 @@ namespace TaskListV2.UI.ViewModel
 
     public CustomFrameViewModel()
     {
+      try
+      {
       dbSelected = Convert.ToInt32(File.ReadAllText(SettingsFile));
+
+      }
+      catch (Exception)
+      {
+        dbSelected = 0;
+      }
       if (dbSelected == 0) JsonSelected = true;
       if (dbSelected == 1) SQLiteSelected = true;
       if (dbSelected == 2) SqlServerSelected = true;

@@ -18,7 +18,7 @@ namespace TaskListV2.UI.Data
     {
       return _dataAccessV2.GetTasks();
     }
-
+    //ToDo: keine statische Methode!
     public static List<string> LeftMenuItems = new List<string>
         {
             "Mein Tag",
