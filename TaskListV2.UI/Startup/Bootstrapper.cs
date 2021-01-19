@@ -29,7 +29,6 @@ namespace TaskListV2.UI.Startup
       builder.RegisterType<MainViewModel>().AsSelf();
       builder.RegisterType<MenuColumnViewModel>().As<IMenuColumnViewModel>();
       builder.RegisterType<CustomFrameViewModel>().As<ICustomFrameViewModel>();
-      builder.RegisterType<TaskColumnViewModel>().AsSelf();
       builder.RegisterType<TaskListV2DataService>().As<ITaskListV2DataService>();
       try
       {
