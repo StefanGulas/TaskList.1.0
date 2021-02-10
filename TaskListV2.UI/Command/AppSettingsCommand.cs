@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Windows;
 using System.Windows.Input;
 using Newtonsoft.Json;
 using TaskListV2.UI.ViewModel;
@@ -33,7 +34,8 @@ namespace TaskListV2.UI.Command
       {
         string json = JsonConvert.SerializeObject(dbSelected, Formatting.Indented);
         File.WriteAllText(SettingsFile, json);
-      }
+
+        }
     }
   }
 

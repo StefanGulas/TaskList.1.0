@@ -23,19 +23,18 @@ namespace TaskListV2.UI.ViewModel
       {
         jsonSelected = value;
         OnPropertyChanged();
-      }
+            }
     }
 
     public bool SQLiteSelected
-    {
-      get { return sQLiteSelected; }
-      set
-      {
-        sQLiteSelected = value;
-        OnPropertyChanged();
-      }
-    }
-
+        {
+            get { return sQLiteSelected; }
+            set
+            {
+                sQLiteSelected = value;
+                OnPropertyChanged();
+              }
+        }
 
     public bool SqlServerSelected
     {
@@ -44,8 +43,8 @@ namespace TaskListV2.UI.ViewModel
       {
         sqlServerSelected = value;
         OnPropertyChanged();
-      }
-    }
+            }
+        }
 
 
 

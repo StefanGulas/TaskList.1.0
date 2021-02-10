@@ -77,6 +77,8 @@ namespace TaskListV2.UI
       PopUpOpenButton.IsDefault = true;
       CreateTaskButton.IsDefault = false;
       EditTaskButton.IsDefault = false;
+      PopUpOpenButton.Focus();
+      
     }
 
     private void SlideGridBackButton_Click(object sender, RoutedEventArgs e)

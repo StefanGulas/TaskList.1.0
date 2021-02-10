@@ -47,13 +47,14 @@ namespace TaskListV2.UI.View
         //    MessageBox.Show("Nevermind then...", "My App");
         //    break;
         }
-        
-      }
 
-    private void SettingsSave_Click(object sender, RoutedEventArgs e)
+        }
+
+
+        private void SettingsSave_Click(object sender, RoutedEventArgs e)
     {
-      SettingsArea.Height = 0;
-    }
+        SettingsArea.Height = 0;
+        }
   }
 
 
