@@ -52,6 +52,7 @@ namespace TaskListV2.UI.Data
         }
         public IEnumerable<Task> GetAll()
         {
+            GetDataBase();
             return DataAccessV2.GetTasks();
         }
 
@@ -64,36 +65,42 @@ namespace TaskListV2.UI.Data
             "Geplant",
             "Aufgaben"
         };
-        private IDataAccessV2 dataAccess;
 
 
         public IEnumerable<Task> Aufgaben()
         {
+            GetDataBase();
             return DataAccessV2.GetTasks();
         }
 
         public IEnumerable<Task> Important()
         {
+            GetDataBase();
             return DataAccessV2.Important();
         }
         public IEnumerable<Task> Today()
         {
+            GetDataBase();
             return DataAccessV2.Today();
         }
         public IEnumerable<Task> Planned()
         {
+            GetDataBase();
             return DataAccessV2.Planned();
         }
         public void CreateTask(string name, bool Complete, bool Important, DateTime Due, Reminder Reminder, Category Category, Repetition Repetition)
         {
+            GetDataBase();
             DataAccessV2.CreateTask(name, Complete, Important, Due, Reminder, Category, Repetition);
         }
         public void EditTask(int taskId, string name, Category category, DateTime due, Reminder reminder, Repetition repetition, bool important, bool complete)
         {
+            GetDataBase();
             DataAccessV2.EditTask(taskId, name, category, due, reminder, repetition, important, complete);
         }
         public void TaskIsComplete(bool complete, int taskId)
         {
+            GetDataBase();
             DataAccessV2.TaskIsComplete(complete, taskId);
         }
 
