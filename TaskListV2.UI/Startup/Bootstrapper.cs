@@ -34,7 +34,7 @@ namespace TaskListV2.UI.Startup
       {
         radioButtonDB = Int32.Parse(File.ReadAllText(SettingsFile));
       }
-      catch (Exception e)
+      catch (Exception)
       {
         radioButtonDB = 0;
       }
