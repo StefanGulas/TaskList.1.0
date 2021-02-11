@@ -37,9 +37,16 @@ namespace TaskListV2.UI.ViewModel
       _taskDataService = taskDataService;
       _eventAggregator = eventAggregator;
       _eventAggregator.GetEvent<SelectedMenuItemEvent>().Subscribe(OnSelectedMenuItemView);
+            _eventAggregator.GetEvent<NewDataBaseConnectionEvent>().Subscribe(OnNewDataBaseConnection);
     }
 
-    private void OnSelectedMenuItemView(string selectedItem)
+        private void OnNewDataBaseConnection(string obj)
+        {
+            Tasks.Clear();
+            Load();
+        }
+
+        private void OnSelectedMenuItemView(string selectedItem)
     {
       _selectedItem = selectedItem;
       RefreshTasks();

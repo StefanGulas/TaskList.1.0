@@ -33,27 +33,15 @@ namespace TaskListV2.UI.View
       {
         MessageBoxResult result = MessageBox.Show("Vergessen Sie nicht Ihre Änderungen zu speichern", "My App", MessageBoxButton.OK);
             SettingsArea.Height = 0;
-
-        //ToDo: Implementiere Speicherung der DB Settings wenn nur mit dem Settings Button das Menu entfernt wird. 
-        //switch (result)
-        //{
-        //  case MessageBoxResult.Yes:
-        //    //_viewModel.AppSettingsCommand.Execute(null);
-        //    SettingsArea.Height = 0;
-        //    break;
-        //  case MessageBoxResult.No:
-        //    break;
-        //  case MessageBoxResult.Cancel:
-        //    MessageBox.Show("Nevermind then...", "My App");
-        //    break;
         }
 
         }
 
 
         private void SettingsSave_Click(object sender, RoutedEventArgs e)
-    {
-        SettingsArea.Height = 0;
+        {
+            SettingsArea.Height = 0;
+            
         }
   }
 
