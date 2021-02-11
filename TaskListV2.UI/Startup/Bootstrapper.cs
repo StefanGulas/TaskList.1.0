@@ -1,6 +1,4 @@
-﻿using System;
-using System.IO;
-using Autofac;
+﻿using Autofac;
 using Prism.Events;
 using TaskListV2.DataAccessNew;
 using TaskListV2.UI.Data;
@@ -9,27 +7,27 @@ using TaskListV2.UI.ViewModel;
 
 namespace TaskListV2.UI.Startup
 {
-  public class Bootstrapper
-  {
-
-    //private const string SettingsFile = "Settings.json";
-    //private int radioButtonDB;
-
-    public IContainer Bootstrap()
+    public class Bootstrapper
     {
-      var builder = new ContainerBuilder();
 
-      builder.RegisterType<EventAggregator>().As<IEventAggregator>().SingleInstance();
+        //private const string SettingsFile = "Settings.json";
+        //private int radioButtonDB;
+
+        public IContainer Bootstrap()
+        {
+            var builder = new ContainerBuilder();
+
+            builder.RegisterType<EventAggregator>().As<IEventAggregator>().SingleInstance();
 
 
-      builder.RegisterType<MainWindow>().AsSelf();
-      builder.RegisterType<CustomFrame>().AsSelf();
-      builder.RegisterType<MenuColumn>().AsSelf();
-      builder.RegisterType<TaskColumn>().AsSelf();
-      builder.RegisterType<MainViewModel>().AsSelf();
-      builder.RegisterType<MenuColumnViewModel>().As<IMenuColumnViewModel>();
-      builder.RegisterType<CustomFrameViewModel>().As<ICustomFrameViewModel>();
-      builder.RegisterType<TaskListV2DataService>().As<ITaskListV2DataService>();
+            builder.RegisterType<MainWindow>().AsSelf();
+            builder.RegisterType<CustomFrame>().AsSelf();
+            builder.RegisterType<MenuColumn>().AsSelf();
+            builder.RegisterType<TaskColumn>().AsSelf();
+            builder.RegisterType<MainViewModel>().AsSelf();
+            builder.RegisterType<MenuColumnViewModel>().As<IMenuColumnViewModel>();
+            builder.RegisterType<CustomFrameViewModel>().As<ICustomFrameViewModel>();
+            builder.RegisterType<TaskListV2DataService>().As<ITaskListV2DataService>();
             //try
             //{
             //radioButtonDB = Int32.Parse(File.ReadAllText(SettingsFile));
@@ -51,6 +49,6 @@ namespace TaskListV2.UI.Startup
             builder.RegisterType<DataAccessV2>().As<IDataAccessV2>();
             //}
             return builder.Build();
+        }
     }
-  }
 }

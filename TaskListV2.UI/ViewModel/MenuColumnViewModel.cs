@@ -5,33 +5,33 @@ using TaskListV2.UI.Event;
 
 namespace TaskListV2.UI.ViewModel
 {
-  public class MenuColumnViewModel : ViewModelBase, IMenuColumnViewModel
-  {
-    private string _selectedItem;
-
-    public IEnumerable<string> MenuItems { get; set; }
-
-    private IEventAggregator _eventAggregator;
-
-    public MenuColumnViewModel(IEventAggregator eventAggregator)
+    public class MenuColumnViewModel : ViewModelBase, IMenuColumnViewModel
     {
+        private string _selectedItem;
 
-      MenuItems = TaskListV2DataService.LeftMenuItems;
-      _eventAggregator = eventAggregator;
-    }
+        public IEnumerable<string> MenuItems { get; set; }
 
-    public string SelectedItem
-    {
-      get { return _selectedItem; }
-      set
-      {
-        _selectedItem = value;
-        OnPropertyChanged();
-        if (_selectedItem != null)
+        private IEventAggregator _eventAggregator;
+
+        public MenuColumnViewModel(IEventAggregator eventAggregator)
         {
-          _eventAggregator.GetEvent<SelectedMenuItemEvent>().Publish(_selectedItem);
+
+            MenuItems = TaskListV2DataService.LeftMenuItems;
+            _eventAggregator = eventAggregator;
         }
-      }
+
+        public string SelectedItem
+        {
+            get { return _selectedItem; }
+            set
+            {
+                _selectedItem = value;
+                OnPropertyChanged();
+                if (_selectedItem != null)
+                {
+                    _eventAggregator.GetEvent<SelectedMenuItemEvent>().Publish(_selectedItem);
+                }
+            }
+        }
     }
-  }
 }

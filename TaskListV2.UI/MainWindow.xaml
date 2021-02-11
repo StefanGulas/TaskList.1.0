@@ -19,7 +19,7 @@
          Background="{DynamicResource MaterialDesignPaper MaterialDesignDarkBackground}"
         MouseDown="Window_MouseDown"
         >
-    
+
     <!-- Start -->
     <Grid Background="#FF5893d4" >
 
@@ -30,29 +30,29 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="*"/>
-            
+
         </Grid.ColumnDefinitions>
 
 
-    <view:CustomFrame DataContext="{Binding CustomFrameViewModel}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
+        <view:CustomFrame DataContext="{Binding CustomFrameViewModel}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
 
-    <view:MenuColumn DataContext="{Binding MenuColumnViewModel}" Grid.Row="1" Grid.Column="0"/>
+        <view:MenuColumn DataContext="{Binding MenuColumnViewModel}" Grid.Row="1" Grid.Column="0"/>
 
 
-            <!--TaskColumn-->
-                <Grid  Grid.Column="1" Grid.Row="1" >
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-                    <ListView MouseDoubleClick="ListViewTaskList_MouseLeftButtonDown" x:Name="ListViewTaskList" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="White" Grid.Row="0"  Margin="10 0 0 0" FontSize="12" ItemsSource="{Binding Tasks, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+        <!--TaskColumn-->
+        <Grid  Grid.Column="1" Grid.Row="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <ListView MouseDoubleClick="ListViewTaskList_MouseLeftButtonDown" x:Name="ListViewTaskList" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="White" Grid.Row="0"  Margin="10 0 0 0" FontSize="12" ItemsSource="{Binding Tasks, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                   SelectedItem="{Binding SelectedTask, UpdateSourceTrigger=PropertyChanged}"  >
 
-                        <ListView.View>
+                <ListView.View>
 
 
 
-                            <GridView >
+                    <GridView >
 
                         <GridViewColumn >
                             <GridViewColumn.CellTemplate>
@@ -68,57 +68,57 @@
                                 <DataTemplate>
                                     <StackPanel Orientation="Vertical" >
                                         <StackPanel Orientation="Horizontal">
-                                                                                        <TextBlock FontSize="16" Text="{Binding TaskName}" Margin="5 5 0 10" />
+                                            <TextBlock FontSize="16" Text="{Binding TaskName}" Margin="5 5 0 10" />
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
-                                                                                        <TextBlock Margin="10 0" Width="100" Text="{Binding TaskCategory}" />
+                                            <TextBlock Margin="10 0" Width="100" Text="{Binding TaskCategory}" />
                                             <materialDesign:PackIcon Width="20" Kind="Calendar"/>
                                             <TextBlock Width="120" Text="{Binding DueString}"/>
                                             <materialDesign:PackIcon Width="20" Kind="Alarm"/>
                                             <TextBlock Width="120" Text="{Binding Reminder}"/>
                                             <materialDesign:PackIcon Width="20" Kind="Repeat"/>
                                             <TextBlock Width="120" Text="{Binding TaskRepetition}"/>
-                                            
+
                                         </StackPanel>
                                     </StackPanel>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
-                          
-                                <GridViewColumn>
+
+                        <GridViewColumn>
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    
-                            <StackPanel>
-                                <TextBlock/>
-                                <materialDesign:PackIcon Width="80" VerticalAlignment="Bottom" x:Name="IsImportantStar" Kind="Star" Foreground="White" Visibility="{Binding ImportantStar}"/>
-                                <TextBlock/>
-                            </StackPanel>
+
+                                    <StackPanel>
+                                        <TextBlock/>
+                                        <materialDesign:PackIcon Width="80" VerticalAlignment="Bottom" x:Name="IsImportantStar" Kind="Star" Foreground="White" Visibility="{Binding ImportantStar}"/>
+                                        <TextBlock/>
+                                    </StackPanel>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
 
- 
-
-                                </GridViewColumn>
-
-                            </GridView>
-                        </ListView.View>
-                    </ListView>
-                    
 
 
+                        </GridViewColumn>
 
-                    <Button VerticalAlignment="Bottom" HorizontalAlignment="Right"      x:Name="PopUpOpenButton" Background="#FF363636"  Grid.Column="6" 
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+
+
+
+            <Button VerticalAlignment="Bottom" HorizontalAlignment="Right"      x:Name="PopUpOpenButton" Background="#FF363636"  Grid.Column="6" 
                          Margin="0 0 30 15" Click="PopUpOpenButton_Click" 
                                 Style="{StaticResource MaterialDesignIconButton}"
                         ToolTip="ToDo hinzufügen" Cursor="Hand" >
-                        <materialDesign:PackIcon
+                <materialDesign:PackIcon
                             Kind="Plus"/>
 
-                    </Button>
+            </Button>
 
-            </Grid>
+        </Grid>
         <!-- ToDo: Refactoring DRY Principle: make one sliding window out of the two! -->
         <!--<view:AddTaskView DataContext="{Binding AddTaskViewModel}" Grid.Row="1" Grid.Column="1"/>-->
 
@@ -218,91 +218,91 @@
                 <ColumnDefinition Width="400"/>
             </Grid.ColumnDefinitions>
             <Grid x:Name="GrayEditArea" Grid.Column="0" Background="White" Opacity="0.4" MouseLeftButtonDown="GrayEditArea_MouseLeftButtonDown">
-                
-            </Grid>    
-        <Grid Grid.Column="1" HorizontalAlignment="Right"  Background="#FF1f4287  " Width="400" Margin="0 0 0 0">
-            <StackPanel Margin="0 15"   
+
+            </Grid>
+            <Grid Grid.Column="1" HorizontalAlignment="Right"  Background="#FF1f4287  " Width="400" Margin="0 0 0 0">
+                <StackPanel Margin="0 15"   
                             VerticalAlignment="Bottom" >
 
-                <Button Width="30" Height="30" Grid.Column="0" HorizontalAlignment="Left"     x:Name="SlideGridEditBackButton"   
+                    <Button Width="30" Height="30" Grid.Column="0" HorizontalAlignment="Left"     x:Name="SlideGridEditBackButton"   
                              Margin="8 50 0 20" Click="SlideGridEditBackButton_Click"
                                     Style="{StaticResource MaterialDesignIconButton}"
                             Cursor="Hand">
-                    <materialDesign:PackIcon Width="20" Height="20"
+                        <materialDesign:PackIcon Width="20" Height="20"
                                 Kind="ArrowRight"/>
-                </Button>
+                    </Button>
 
 
                     <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Margin="15 0" VerticalAlignment="Center" Kind="ToDo" Foreground="{DynamicResource MaterialDesignPaper}"/>
-                    <Label Content="ToDo" Margin="0 5 15 0" Foreground="AntiqueWhite"/>
-                </StackPanel>
-                <TextBox ForceCursor="True" x:Name="ToDoEditTextBox" Margin="10 0" Padding="10 0" Height="30" FontSize="16" VerticalContentAlignment="Bottom"  Background="White" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" ToolTip="ToDo"
+                        <materialDesign:PackIcon Margin="15 0" VerticalAlignment="Center" Kind="ToDo" Foreground="{DynamicResource MaterialDesignPaper}"/>
+                        <Label Content="ToDo" Margin="0 5 15 0" Foreground="AntiqueWhite"/>
+                    </StackPanel>
+                    <TextBox ForceCursor="True" x:Name="ToDoEditTextBox" Margin="10 0" Padding="10 0" Height="30" FontSize="16" VerticalContentAlignment="Bottom"  Background="White" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" ToolTip="ToDo"
                           />
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Margin="15 0" VerticalAlignment="Center" Kind="CategoryOutline" Foreground="{DynamicResource MaterialDesignPaper}"/>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Margin="15 0" VerticalAlignment="Center" Kind="CategoryOutline" Foreground="{DynamicResource MaterialDesignPaper}"/>
 
-                    <Label Content="Kategorie" Margin="0 5 15 0" Foreground="AntiqueWhite"/>
-                </StackPanel>
+                        <Label Content="Kategorie" Margin="0 5 15 0" Foreground="AntiqueWhite"/>
+                    </StackPanel>
 
-                <ComboBox Background="AliceBlue" Name="TaskCategoryEditComboBox" Height="30" Margin="10 0" Padding="10 0" FontSize="16" VerticalContentAlignment="Center" SelectedValue="{Binding Category, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding TaskCategories, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    <ComboBox Background="AliceBlue" Name="TaskCategoryEditComboBox" Height="30" Margin="10 0" Padding="10 0" FontSize="16" VerticalContentAlignment="Center" SelectedValue="{Binding Category, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding TaskCategories, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                           Style="{StaticResource MaterialDesignComboBox}"
                         ToolTip="Kategorie auswählen">
 
-                </ComboBox>
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Margin="15 0" VerticalAlignment="Center" Kind="CalendarDay" Foreground="{DynamicResource MaterialDesignPaper}"/>
+                    </ComboBox>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Margin="15 0" VerticalAlignment="Center" Kind="CalendarDay" Foreground="{DynamicResource MaterialDesignPaper}"/>
 
-                    <Label Content="Fällig" Margin="0 5 15 0" Foreground="AntiqueWhite"/>
-                </StackPanel>
+                        <Label Content="Fällig" Margin="0 5 15 0" Foreground="AntiqueWhite"/>
+                    </StackPanel>
 
-                <DatePicker Height="30" Margin="10 0" Padding="100 0" Background="AliceBlue" Name="dt_StartDateFromEdit" FontSize="16"  ToolTip="Fälligkeitsdatum hinzufügen" FirstDayOfWeek="Monday" 
+                    <DatePicker Height="30" Margin="10 0" Padding="100 0" Background="AliceBlue" Name="dt_StartDateFromEdit" FontSize="16"  ToolTip="Fälligkeitsdatum hinzufügen" FirstDayOfWeek="Monday" 
                   SelectedDate="{Binding Due, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Margin="15 0" VerticalAlignment="Center" Kind="BellOutline" Foreground="{DynamicResource MaterialDesignPaper}"/>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Margin="15 0" VerticalAlignment="Center" Kind="BellOutline" Foreground="{DynamicResource MaterialDesignPaper}"/>
 
-                    <Label Content="Erinnerung" Margin="0 5 15 0" Foreground="AntiqueWhite"/>
-                </StackPanel>
-                <ComboBox Background="AliceBlue" Height="30" Margin="10 0"  Padding="10 0" VerticalContentAlignment="Center" FontSize="16"  Name="ReminderEditComboBox" SelectedValue="{Binding Reminder, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding ReminderList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        <Label Content="Erinnerung" Margin="0 5 15 0" Foreground="AntiqueWhite"/>
+                    </StackPanel>
+                    <ComboBox Background="AliceBlue" Height="30" Margin="10 0"  Padding="10 0" VerticalContentAlignment="Center" FontSize="16"  Name="ReminderEditComboBox" SelectedValue="{Binding Reminder, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding ReminderList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                           Style="{StaticResource MaterialDesignComboBox}"
                         ToolTip="Erinnerungsfunktion aktivieren">
-                </ComboBox>
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Margin="15 0" VerticalAlignment="Center" Kind="Repeat" Foreground="{DynamicResource MaterialDesignPaper}"/>
+                    </ComboBox>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Margin="15 0" VerticalAlignment="Center" Kind="Repeat" Foreground="{DynamicResource MaterialDesignPaper}"/>
 
-                    <Label Content="Wiederholen" Margin="0 5 15 0" Foreground="AntiqueWhite"/>
-                </StackPanel>
-                <ComboBox Background="AliceBlue" Height="30" Margin="10 0"  Padding="10 0" VerticalContentAlignment="Center" FontSize="16" Name="RepetitionEditComboBox" SelectedValue="{Binding Repetition, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding RepetitionList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        <Label Content="Wiederholen" Margin="0 5 15 0" Foreground="AntiqueWhite"/>
+                    </StackPanel>
+                    <ComboBox Background="AliceBlue" Height="30" Margin="10 0"  Padding="10 0" VerticalContentAlignment="Center" FontSize="16" Name="RepetitionEditComboBox" SelectedValue="{Binding Repetition, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding RepetitionList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                           Style="{StaticResource MaterialDesignComboBox}"
                         ToolTip="Wiederholungfunktion aktivieren">
 
-                </ComboBox>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 10">
-                    <CheckBox x:Name="ImportantCheckBoxEdit" Margin="15 5 10 0" Background="AliceBlue" Height="25" Width="25" Style="{StaticResource MaterialDesignActionAccentToggleButton}" IsChecked="{Binding Important, Mode=TwoWay}" Cursor="Hand"/>
-                    <Label HorizontalAlignment="Right" Content="Wichtig"  Foreground="AntiqueWhite"/>
-                </StackPanel>
+                    </ComboBox>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 10">
+                        <CheckBox x:Name="ImportantCheckBoxEdit" Margin="15 5 10 0" Background="AliceBlue" Height="25" Width="25" Style="{StaticResource MaterialDesignActionAccentToggleButton}" IsChecked="{Binding Important, Mode=TwoWay}" Cursor="Hand"/>
+                        <Label HorizontalAlignment="Right" Content="Wichtig"  Foreground="AntiqueWhite"/>
+                    </StackPanel>
 
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="*"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
 
-                    </Grid.ColumnDefinitions>
+                        </Grid.ColumnDefinitions>
 
-                    <Button Grid.Column="1" VerticalAlignment="Bottom"      x:Name="EditTaskButton" Background="DimGray"  Command="{Binding EditTaskCommand}" CommandParameter="{Binding}"
+                        <Button Grid.Column="1" VerticalAlignment="Bottom"      x:Name="EditTaskButton" Background="DimGray"  Command="{Binding EditTaskCommand}" CommandParameter="{Binding}"
                              Margin="25" Click="EditTaskButton_Click" KeyDown="EditTaskButton_KeyDown"
                                     Style="{StaticResource MaterialDesignIconButton}"
                             ToolTip="ToDo hinzufügen" Cursor="Hand">
-                        <materialDesign:PackIcon
+                            <materialDesign:PackIcon
                                 Kind="Update"/>
 
-                    </Button>
-                </Grid>
-            </StackPanel>
+                        </Button>
+                    </Grid>
+                </StackPanel>
 
+            </Grid>
         </Grid>
-        </Grid>
-        </Grid>
+    </Grid>
 
 
 </Window>

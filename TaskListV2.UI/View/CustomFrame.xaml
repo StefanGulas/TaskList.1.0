@@ -18,7 +18,8 @@
         <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Background="#FF070d59">
             <StackPanel VerticalAlignment="Top" Margin="10 5 10 0" >
                 <Grid>
-<!--CustomFrame-->                   <materialDesign:MaterialDateDisplay Foreground="White" Background="{x:Null}" HorizontalAlignment="Left"/>
+                    <!--CustomFrame-->
+                    <materialDesign:MaterialDateDisplay Foreground="White" Background="{x:Null}" HorizontalAlignment="Left"/>
 
                     <TextBlock Background="{x:Null}"  VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="34" FontFamily="Champagne &amp; Limousines" Foreground="White" Text="ToDo">
                            <materialDesign:PackIcon Margin="25 10 0 -10" Height="40" Width="40" VerticalAlignment="Bottom" Kind="ToDo" Foreground="{DynamicResource MaterialDesignPaper}"/>
@@ -53,27 +54,27 @@
                     <Label HorizontalAlignment="Center" VerticalAlignment="Top" Content="Einstellungen" FontSize="24" Foreground="GhostWhite" Margin="45 20 0 25"/>
 
                 </StackPanel>
-<!--Farb Mode-->
+                <!--Farb Mode-->
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="1" Grid.Column="0">
                     <Label Content="Farb Mode" FontSize="16" Foreground="GhostWhite" Margin="5 10"/>
                     <RadioButton x:Name="RadioButtonStandardMode" Style="{StaticResource MaterialDesignLightRadioButton}" Margin="10" FontSize="14" Foreground="GhostWhite" Cursor="Hand">Standard Mode</RadioButton>
                     <RadioButton Style="{StaticResource MaterialDesignLightRadioButton}" x:Name="RadioButtonDarkMode" Margin="10" FontSize="14" Foreground="GhostWhite" Cursor="Hand">Dark Mode</RadioButton>
                     <RadioButton x:Name="RadioButtonLightMode" Margin="10" Foreground="GhostWhite" Style="{StaticResource MaterialDesignLightRadioButton}" FontSize="14">Light Mode</RadioButton>
                 </StackPanel>
-<!--Benachrichtungstöne-->
+                <!--Benachrichtungstöne-->
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1">
                     <Label Content="Datenbank" FontSize="16" Foreground="GhostWhite" Margin="5 10"/>
                     <RadioButton IsChecked="{Binding JsonSelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Command="{Binding AppSettingsCommand}" CommandParameter="{Binding}" x:Name="RadioButtonTelefonKlingel" Style="{StaticResource MaterialDesignLightRadioButton}" Margin="10" FontSize="14" Foreground="GhostWhite" Cursor="Hand">Json Datei</RadioButton>
                     <RadioButton IsChecked="{Binding SQLiteSelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource MaterialDesignLightRadioButton}" x:Name="RadioButtonMozart" Margin="10" FontSize="14" Foreground="GhostWhite" Cursor="Hand">SQLite</RadioButton>
                     <RadioButton IsChecked="{Binding SqlServerSelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="RadioButtonPinkPanther" Margin="10" Foreground="GhostWhite" Style="{StaticResource MaterialDesignLightRadioButton}" FontSize="14">Sql Server</RadioButton>
                 </StackPanel>
-<!--Sprache-->
-<StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="1" Grid.Column="2">
+                <!--Sprache-->
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="1" Grid.Column="2">
                     <Label Content="Sprache" FontSize="16" Foreground="GhostWhite" Margin="5 10"/>
                     <RadioButton x:Name="RadioButtonDeutsch" Style="{StaticResource MaterialDesignLightRadioButton}" Margin="10" FontSize="14" Foreground="GhostWhite" Cursor="Hand">Deutsch</RadioButton>
                     <RadioButton Style="{StaticResource MaterialDesignLightRadioButton}" x:Name="RadioButtonEnglisch" Margin="10" FontSize="14" Foreground="GhostWhite" Cursor="Hand">Englisch</RadioButton>
                     <RadioButton x:Name="RadioButtonFranzösisch" Margin="10" Foreground="GhostWhite" Style="{StaticResource MaterialDesignLightRadioButton}" FontSize="14">Französisch</RadioButton>
-                </StackPanel>                 
+                </StackPanel>
                 <StackPanel Grid.Column="2" Grid.Row="2" >
                     <Button VerticalAlignment="Bottom" HorizontalAlignment="Right"      x:Name="SettingsSave" Background="DimGray"  
                              Margin="0 30 80 10" Click="SettingsSave_Click"  Command="{Binding AppSettingsCommand}" CommandParameter="{Binding}"
