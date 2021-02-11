@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Windows.Input;
 using Newtonsoft.Json;
@@ -43,6 +42,7 @@ namespace TaskListV2.UI.ViewModel
                 jsonSelected = value;
                 OnPropertyChanged();
                 _eventAggregator.GetEvent<NewDataBaseConnectionEvent>().Publish("");
+                SetDatabaseInFile(0);
 
             }
         }
@@ -55,6 +55,7 @@ namespace TaskListV2.UI.ViewModel
                 sQLiteSelected = value;
                 OnPropertyChanged();
                 _eventAggregator.GetEvent<NewDataBaseConnectionEvent>().Publish("");
+                SetDatabaseInFile(1);
             }
         }
 
@@ -66,17 +67,17 @@ namespace TaskListV2.UI.ViewModel
                 sqlServerSelected = value;
                 OnPropertyChanged();
                 _eventAggregator.GetEvent<NewDataBaseConnectionEvent>().Publish("");
+                SetDatabaseInFile(2);
             }
         }
-
-
+        void SetDatabaseInFile(int dataBaseNumber)
+        {
+            string json = JsonConvert.SerializeObject(dataBaseNumber, Formatting.Indented);
+            File.WriteAllText("Settings.json", json);
+        }
 
         public ICommand CloseAppCommand { get { return new CloseAppCommand(); } }
 
         public ICommand AppSettingsCommand { get { return new AppSettingsCommand(); } }
-
-
-        //  return JsonConvert.DeserializeObject<List<Task>>(json);
-
     }
 }

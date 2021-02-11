@@ -1,39 +1,38 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using TaskListV2.UI;
 using TaskListV2.UI.ViewModel;
 
 namespace TaskListV2.UI.View
 {
-  /// <summary>
-  /// Interaktionslogik für CustomFrame.xaml
-  /// </summary>
-  public partial class CustomFrame : UserControl
-  {
-    CustomFrameViewModel _viewModel;
-    
-    public CustomFrame()
+    /// <summary>
+    /// Interaktionslogik für CustomFrame.xaml
+    /// </summary>
+    public partial class CustomFrame : UserControl
     {
-      InitializeComponent();
-      //_viewModel = new CustomFrameViewModel();
-      //DataContext = _viewModel;
-      RadioButtonDeutsch.IsChecked = true;
+        CustomFrameViewModel _viewModel;
 
-      RadioButtonStandardMode.IsChecked = true;
-      SettingsArea.Height = 0;
-    }
+        public CustomFrame()
+        {
+            InitializeComponent();
+            //_viewModel = new CustomFrameViewModel();
+            //DataContext = _viewModel;
+            RadioButtonDeutsch.IsChecked = true;
 
-    private void SettingsButton_Click(object sender, System.Windows.RoutedEventArgs e)
-    {
-      if (SettingsArea.Height == 0)
-      {
-        SettingsArea.Height = 600;
-      }
-      else
-      {
-        MessageBoxResult result = MessageBox.Show("Vergessen Sie nicht Ihre Änderungen zu speichern", "My App", MessageBoxButton.OK);
+            RadioButtonStandardMode.IsChecked = true;
             SettingsArea.Height = 0;
         }
+
+        private void SettingsButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            if (SettingsArea.Height == 0)
+            {
+                SettingsArea.Height = 600;
+            }
+            else
+            {
+                MessageBoxResult result = MessageBox.Show("Vergessen Sie nicht Ihre Änderungen zu speichern", "My App", MessageBoxButton.OK);
+                SettingsArea.Height = 0;
+            }
 
         }
 
@@ -41,10 +40,10 @@ namespace TaskListV2.UI.View
         private void SettingsSave_Click(object sender, RoutedEventArgs e)
         {
             SettingsArea.Height = 0;
-            
+
         }
-  }
+    }
 
 
-  
+
 }
