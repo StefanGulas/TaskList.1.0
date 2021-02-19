@@ -10,9 +10,6 @@ namespace TaskListV2.UI.Startup
     public class Bootstrapper
     {
 
-        //private const string SettingsFile = "Settings.json";
-        //private int radioButtonDB;
-
         public IContainer Bootstrap()
         {
             var builder = new ContainerBuilder();
@@ -23,31 +20,13 @@ namespace TaskListV2.UI.Startup
             builder.RegisterType<MainWindow>().AsSelf();
             builder.RegisterType<CustomFrame>().AsSelf();
             builder.RegisterType<MenuColumn>().AsSelf();
-            builder.RegisterType<TaskColumn>().AsSelf();
             builder.RegisterType<MainViewModel>().AsSelf();
             builder.RegisterType<MenuColumnViewModel>().As<IMenuColumnViewModel>();
             builder.RegisterType<CustomFrameViewModel>().As<ICustomFrameViewModel>();
             builder.RegisterType<TaskListV2DataService>().As<ITaskListV2DataService>();
-            //try
-            //{
-            //radioButtonDB = Int32.Parse(File.ReadAllText(SettingsFile));
-            //}
-            //catch (Exception)
-            //{
-            //  radioButtonDB = 0;
-            //}
-            //if (radioButtonDB == 0)
-            //{
             builder.RegisterType<FileDataAccess>().As<IFileDataAccess>();
-            //}
-            //if (radioButtonDB == 1)
-            //{
             builder.RegisterType<DataAccessSQLite>().As<IDataAccessSQLite>();
-            //}
-            //if (radioButtonDB == 2)
-            //{
             builder.RegisterType<DataAccessV2>().As<IDataAccessV2>();
-            //}
             return builder.Build();
         }
     }
